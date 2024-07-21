@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <link rel="stylesheet" th:href="@{/layout-css/Home.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/popup.css}">
+
+    <title>Home</title>
+</head>
+<body>
+<style>
+    .bg-gray {
+        height: 80px;
+        position: relative;
+        z-index: 10;
+    }
+    .carousel {
+        position: relative;
+        top: -80px;
+        z-index: 1;
+    }
+    .slick-slide img {
+        width: 100%;
+    }
+</style>
+<nav class="bg-gray" style="height: 80px;  background-color: rgba(237,194,124,0.5); /* Màu nền trong suốt */ ">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
+                    <!--
+                      Icon when menu is closed.
+
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!--
+                      Icon when menu is open.
+
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center mt-2">
+                    <img th:src="@{/images/Logo.png}" style="width: 150px; height:100px;" alt="">
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                    <div class="flex space-x-4" style="margin-top: 40px;">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page" style="color: rgb(204,91,31);">TRANG CHỦ</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"  style="color: rgb(204,91,31);">TẤT CẢ SẢN PHẨM</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" style="color: rgb(204,91,31);">GIỚI THIỆU</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" style="color: rgb(204,91,31);">TUYỂN DỤNG</a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <span class="absolute -inset-1.5"></span>
+                    <span class="sr-only">View notifications</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                </button>
+
+                <!-- Profile dropdown -->
+                <!-- Profile dropdown -->
+                <div class="relative ml-3">
+                    <div>
+                        <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" style=" background-color: rgb(94 48 2);">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">Open user menu</span>
+                            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        </button>
+                    </div>
+
+                    <div id="dropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Thông tin tài khoản</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Cài đặt</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+        </div>
+    </div>
+</nav>
+
+<div class="carousel">
+    <div class="row single-item">
+<!--        <img th:src="@{/images/Banner_Milk_Tea.png}" alt="banner">-->
+        <img th:src="@{/images/Banner4.png}" alt="">
+        <img th:src="@{/images/Banner5.png}" alt="banner">
+    </div>
+</div>
+<div class="container">
+    <div class="section-title">
+        <div class="text-1">Coffee Poly Menu</div>
+        <div class="text-2">Sản phẩm nổi bật</div>
+        <div class="icon-bottom-title"></div>
+    </div>
+<!--        Sản phẩm-->
+    <div class="row new product mt-5">
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+        <div class="tags">   <div class="discount-tag">17%</div>  </div>
+        <div class="img-wrap">
+            <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+        </div>
+        <div class="product-card-content">
+            <div class="product-title"> Xanh nhài mãng cầu </div>
+            <div class="product-price">
+                <div class="product-origin-price">
+                    25,000đ</div>
+                <div class="product-sale-price">
+                    30,000đ</div>
+            </div>
+            <div class="button-type-one btn-order-product">Đặt Hàng</div>
+        </div>
+            <hr>
+    </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;" >
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
+            <div class="tags">   <div class="discount-tag">17%</div>  </div>
+            <div class="img-wrap">
+                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
+            </div>
+            <div class="product-card-content">
+                <div class="product-title"> Xanh nhài mãng cầu </div>
+                <div class="product-price">
+                    <div class="product-origin-price">
+                        25,000đ</div>
+                    <div class="product-sale-price">
+                        30,000đ</div>
+                </div>
+                <div class="button-type-one btn-order-product">Đặt Hàng</div>
+            </div>
+            <hr>
+        </div>
+    </div>
+<!--    popup-->
+    <div class="order-popup" id="orderPopup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="row">
+            <div class="col-sm-4"> <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="Product Image" class="product-image">
+            </div>
+            <div class="col-sm-8"><h2 class="product-title" style="font-size: 20px">Xanh nhài mãng cầu</h2>
+                <p class="product-price"><span class="old-price">30,000đ</span> <span class="new-price">25,000đ</span></p>
+                <p class="product-description" style="font-size: 13px">Mãng cầu tươi dẻo dai vị chua ngọt tự nhiên, trà xanh organic thơm hương nhài kết hợp với những lát chanh vàng tạo nên tổng thể hương vị tươi mát, bổ dưỡng.</p>
+            </div>
+              </div>
+            <div class="options">
+                <label for="type">Chọn loại</label>
+                <select id="type">
+                    <option value="lanh">Lạnh</option>
+                </select>
+
+                <label for="size">Chọn size</label>
+                <select id="size">
+                    <option value="L">Size L</option>
+                    <option value="M">Size M</option>
+                </select>
+
+                <label for="sugar">Chọn đường</label>
+                <select id="sugar">
+                    <option value="100">100% đường</option>
+                    <option value="less">Ít đường</option>
+                    <option value="none">Không đường</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart-btn">+ 25,000đ</button>
+        </div>
+    </div>
+
+    <div class="button-container">
+    <div class="button-type-one btn-view-all">Xem tất cả</div>
+    </div>
+</div>
+
+<script>
+    // scripts.js
+    document.addEventListener('DOMContentLoaded', function () {
+        var orderPopup = document.getElementById('orderPopup');
+        var closeBtn = document.getElementById('closeBtn');
+        var orderButtons = document.querySelectorAll('.btn-order-product');
+
+        // Show the popup
+        function showPopup() {
+            orderPopup.style.display = 'flex';
+        }
+
+        // Hide the popup
+        function hidePopup() {
+            orderPopup.style.display = 'none';
+        }
+
+        // Event listener for close button
+        closeBtn.addEventListener('click', hidePopup);
+
+        // Event listeners for order buttons
+        orderButtons.forEach(function (button) {
+            button.addEventListener('click', showPopup);
+        });
+    });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $('.single-item').slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+    });
+</script>
+
+<script>
+    document.getElementById('closeBtn').addEventListener('click', function() {
+        document.getElementById('orderPopup').style.display = 'none';
+    });
+
+    document.querySelector('.add-to-cart-btn').addEventListener('click', function() {
+        document.getElementById('orderPopup').style.display = 'none';
+        // Add your order handling code here
+    });
+
+    document.getElementById('user-menu-button').addEventListener('click', function() {
+        var dropdown = document.getElementById('dropdown');
+        if (dropdown.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
+        } else {
+            dropdown.classList.add('hidden');
+        }
+    });
+
+    // Optional: Close dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('dropdown');
+        var button = document.getElementById('user-menu-button');
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });</script>
+</body>
+</html>
