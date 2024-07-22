@@ -35,4 +35,8 @@ public class HomeController {
     public String getHome(){
         return "Pages/Home/Home_User/Home";
     }
+    @GetMapping("/AllProduct")
+    public String getAllProduct(){
+        return "Pages/Home/Home_User/All_Product";
+    }
 }
