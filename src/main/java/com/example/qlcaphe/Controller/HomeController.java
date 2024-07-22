@@ -30,4 +30,9 @@ public class HomeController {
     public String getOderManagement(){
         return "Pages/Home/Order";
     }
+
+    @GetMapping("/Home")
+    public String getHome(){
+        return "Pages/Home/Home_User/Home";
+    }
 }
