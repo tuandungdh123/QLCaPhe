@@ -28,6 +28,6 @@ public class HomeController {
 
     @GetMapping("/admin/oderManagement")
     public String getOderManagement(){
-        return "Pages/Home/OrderManagement";
+        return "Pages/Home/Order";
     }
 }
