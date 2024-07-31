@@ -1,0 +1,41 @@
+.name-work{
+    display: flex;
+}
+.name-work h4 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+.Address, .Dealine {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.Address i, .Dealine i {
+    margin-right: 10px;
+}
+.btn-ungtuyen {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #fbcfa4;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-ungtuyen a{
+    color: white;
+}
+.btn-save-change:hover {
+    background-color: #e66b00;
+}
+
+.location-work{
+    padding: 20px;
+    margin-left: 150px;
+}
+.List-location{
+    border-radius:5px;
+    border: 1px solid #ff893f;
+    border-top: 0px;
+    border-bottom: 0px;
+}

@@ -274,3 +274,13 @@ nav .flex.space-x-4 a:hover {
     cursor: pointer;
     font-weight: bold;
 }
+.col-sm-3 .nav-link {
+    color: black; /* Đặt màu chữ thành màu đen */
+}
+.col-sm-3 .nav-link:hover {
+     background-color: #ff893f; /* Màu khi hover (thay thế bằng màu bạn muốn) */
+    border-radius: 10px;
+ }
+
+
+/**/
