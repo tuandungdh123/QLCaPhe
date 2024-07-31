@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" th:href="@{/layout-css/Home.css}">
     <link rel="stylesheet" th:href="@{/layout-css/popup.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/Footer.css}">
 
     <title>Home</title>
 </head>
@@ -71,7 +72,7 @@
                         <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page" style="color: rgb(204,91,31);">TRANG CHỦ</a>
                         <a th:href="@{/AllProduct}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"  style="color: rgb(204,91,31);">TẤT CẢ SẢN PHẨM</a>
                         <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" style="color: rgb(204,91,31);">GIỚI THIỆU</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" style="color: rgb(204,91,31);">TUYỂN DỤNG</a>
+                        <a th:href="@{/TuyenDung}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" style="color: rgb(204,91,31);">TUYỂN DỤNG</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +97,7 @@
                     </div>
 
                     <div id="dropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Thông tin tài khoản</a>
+                        <a th:href="@{Account}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Thông tin tài khoản</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Cài đặt</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Đăng xuất</a>
                     </div>
@@ -117,10 +118,9 @@
     </div>
 </nav>
 </div>
-<div class="carousel">
+<div class="carousel" style="max-width: 100%; overflow: hidden;">
     <div class="row single-item">
-<!--        <img th:src="@{/images/Banner_Milk_Tea.png}" alt="banner">-->
-        <img th:src="@{/images/Banner4.png}" alt="">
+        <img th:src="@{/images/Banner4.png}" alt="banner">
         <img th:src="@{/images/Banner5.png}" alt="banner">
     </div>
 </div>
@@ -298,7 +298,7 @@
                         <label for="sugar">Chọn đường</label>
                         <select id="sugar">
                             <option value="100">100% đường</option>
-                            <option value="less">Ít đường</option>
+                            <option value="less">50% đường</option>
                             <option value="none">Không đường</option>
                         </select>
                     </div>
@@ -312,34 +312,22 @@
     <div class="button-container">
     <div class="button-type-one btn-view-all">Xem tất cả</div>
     </div>
-</div>
 
-<script>
-    // scripts.js
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     var orderPopup = document.getElementById('orderPopup');
-    //     var closeBtn = document.getElementById('closeBtn');
-    //     var orderButtons = document.querySelectorAll('.btn-order-product');
-    //
-    //     // Show the popup
-    //     function showPopup() {
-    //         orderPopup.style.display = 'flex';
-    //     }
-    //
-    //     // Hide the popup
-    //     function hidePopup() {
-    //         orderPopup.style.display = 'none';
-    //     }
-    //
-    //     // Event listener for close button
-    //     closeBtn.addEventListener('click', hidePopup);
-    //
-    //     // Event listeners for order buttons
-    //     orderButtons.forEach(function (button) {
-    //         button.addEventListener('click', showPopup);
-    //     });
-    // });
-</script>
+    <div class="home-about-us container mt-3">
+        <img class="img-banner-about-us" src="https://tocotocotea.com/wp-content/themes/tocotocotea/assets/images/about_us_new.png" alt="">
+        <div class="home-about-us-content">
+            <div class="section-title">
+                <div class="text-1">Coffee Place</div>
+                <div class="text-2">Về chúng tôi</div>
+                <div class="icon-bottom-title"></div>
+            </div>
+            <div class="description"> Bên cạnh niềm tự hào về những ly trà sữa ngon – sạch – tươi, chúng tôi luôn tự tin
+                mang đến khách hàng những trải nghiệm tốt nhất về dịch vụ và không gian. </div>
+            <div class="button-type-one btn-view-all">Xem thêm</div>
+        </div>
+    </div>
+</div>
+<div th:replace=" pages/Home/Home_User/Footer/Footer :: Footer"></div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -349,7 +337,7 @@
       autoplay: true,
       autoplaySpeed: 4000,
   })
-</script>-->
+</script>
 
 <script>
     document.getElementById('user-menu-button').addEventListener('click', function() {
@@ -369,5 +357,6 @@
             dropdown.classList.add('hidden');
         }
     });</script>
+<script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 </body>
 </html>
