@@ -56,6 +56,10 @@ public class HomeController {
         return "Pages/Home/Home_User/Recruitment";
     }
 
+    @GetMapping("/Product_Managerment")
+    public String getProduct_Managerment(){
+        return "Pages/Home/Home_User/Product_Managerment";
+    }
     @GetMapping("/nav")
     public String getNav(){
         return "Pages/Home/Home_User/Footer/Footer";
