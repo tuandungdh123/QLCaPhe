@@ -39,12 +39,11 @@ public class StaffEntity {
     @Column(name = "Birthday")
     private String birthday;
 
+    @Column(name = "Status")
+    private String status;
+
     @Column(name = "is_Staff")
     private Byte isStaff;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Status_Id", referencedColumnName = "Status_Id")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
-    private Status status;
 
 }

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
-    <script th:src="@{/Layout-js/UnderBack.js/}"></script>
+<!--    <script th:src="@{/Layout-js/UnderBack.js/}"></script>-->
 </head>
 <body>
-<div th:replace=" pages/Home/admin :: sidebar"></div>
+<div th:replace="~{pages/Home/admin :: sidebar}"></div>
 <div class="content">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,49 +36,55 @@
                 </div>
             </div>
         </nav>
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div class="row">
-        <div class="col-4">
         <form id="infoForm" >
             <div class="row">
+                <div class="col-6">
                 <div class="mb-3">
-                    <label for="idUserId" class="form-label">UserId</label>
-                    <input type="text" class="form-control" id="idUserId" name="UserId" disabled>
+                    <label for="StaffId" class="form-label">Staff_Id</label>
+                    <input type="text" class="form-control" id="StaffId" name="StaffId" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="InputUserName" class="form-label">UserName</label>
-                    <input type="text" oninput="validateFormUserName()"  class="form-control" id="InputUserName" name="username">
+                    <label for="fullName" class="form-label">FullName</label>
+                    <input type="text"  class="form-control" id="fullName" name="username">
                     <div id="userNameError" class="error text-danger"></div>
                 </div>
                 <div class="mb-3">
-                    <label for="InputPassword1" class="form-label">Password</label>
-                    <input type="password" oninput="validateFormPassWord()" name="password" class="form-control" id="InputPassword1">
+                    <label for="account" class="form-label">Account</label>
+                    <input type="text" name="account" class="form-control" id="account">
                     <div id="passWordError" class="error text-danger"></div>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" oninput="validateFormEmail()" class="form-control" name="email" id="email">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" class="form-control" id="phone">
+                    <div id="phoneError" class="error text-danger"></div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
                     <div id="emailError" class="error text-danger"></div>
                 </div>
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="number" oninput="validateFormPhone()" class="form-control" id="phone">
-                    <div id="phoneError" class="error text-danger"></div>
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" name="Address" id="address">
                 </div>
-                <div class="d-flex align-items-center">
-                    <div class="col-3 form-check mb-2">
-                        <input class="form-check-input me-2" type="radio" value="" id="Admin" name="role"/>
-                        <label class="form-check-label " for="Admin">
-                            Admin
-                        </label>
-                    </div>
-                    <div class="col-3 form-check mb-2">
-                        <input class="form-check-input me-2" type="radio" value="" id="User" name="role"/>
-                        <label class="form-check-label" for="User">
-                            User
-                        </label>
+                <div class="mb-3">
+                    <label for="birthday" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" name="birthday" id="birthday">
+                </div>
+                <label class="form-label mb-3">Status</label>
+                <div class="select">
+                    <div class="top">
+                        <select class="form-select" aria-label="Default select example" id="status">
+                            <option value="Đang Làm">Đang Làm</option>
+                            <option value="Đã Nghỉ">Đã Nghỉ</option>
+                        </select>
                     </div>
                 </div>
+            </div>
             </div>
         </form>
         <div class="bottom">
@@ -99,32 +105,32 @@
                 Clear
             </button>
         </div>
-        </div>
-         <div class="col-8">
+
+<!--         <div class="col-8">-->
         <div class="tableQLAccount">
             <table class="table table-bordered" id="fillToForm">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>UserName</th>
-<!--                    <th>Password</th>-->
-                    <th>Email</th>
+                    <th>No.</th>
+                    <th>FullName</th>
+                    <th>Account</th>
                     <th>Phone</th>
-                    <th>Role</th>
-                    <th>Edit</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Birthday</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody id="bodyTableListAccount">
                 </tbody>
             </table>
         </div>
-    </div>
         </div>
 </div>
     </div>
 </div>
 <script type="application/javascript">
-
+    listStaff = []
     $(document).ready(async function () {
         await loadDataAccount();
         createTableAccount(listAccount);
@@ -141,16 +147,13 @@
             bodyTableListAccountString +=
                 `<tr>` +
                 `<td>${index + 1}</td>` +
-                `<td>${e.accountName}</td>` +
-                // `<td>${e.password}</td>` +
-                `<td>${e.email}</td>` +
+                `<td>${e.name}</td>` +
+                `<td>${e.account}</td>` +
                 `<td>${e.phone}</td>` +
-                `<td>${e.role.role_name}</td>` +
-                `<td>` +
-                `<button type="button"
-                        onclick="getAccountInformation(${e.userId})"
-                        class="btn btn-outline-success">Edit</button>` +
-                `</td>` +
+                `<td>${e.email}</td>` +
+                `<td>${e.address}</td>` +
+                `<td>${e.birthday}</td>` +
+                `<td>${e.status}</td>` +
                 `</tr>`;
         });
         $("#bodyTableListAccount").html(bodyTableListAccountString);
@@ -159,28 +162,35 @@
            info: false,
             paging: true,
             ordering: false,
-            lengthMenu:[8]
+            lengthMenu:[3]
         });
         $('.dt-length').hide();
+        let safe = this
+        table.on('dblclick', 'tbody tr', function () {
+            let data = table.row(this).data();
+            safe.fillDetailForm({
+                Staff_Id : data[0],
+                name : data[1],
+                account : data[2],
+                phone : data[3],
+                email : data[4],
+                address : data[5],
+                birthday : data[6],
+                status : data[7]
+            })
+        });
+        this.fillDetailForm(this.listStaff[0])
     }
 
     async function loadDataAccount() {
-        let response = await axios.get(`/account-api/getAllAccount`);
+        let response = await axios.get(`/staff-api/getAllAccount`);
         listAccount = response.data.data;
-    }
-
-    async function getAccountInformation(userId) {
-        let response = await axios.get(`/account-api/getUserByUserId?userId=${userId}`);
-        let result = response.data;
-        if (result.status) {
-            fillDetailForm(result.data)
-        }
     }
     async function deleteAccount(){
         let param = {
-            userId : $('#idUserId').val()
+            Staff_Id : $('#StaffId').val()
         }
-        let response = await axios.delete(`/account-api/DeleteId`, { params: param });
+        let response = await axios.delete(`/staff-api/DeleteId`, { params: param });
         let result = response.data;
         if(result.success){
             alert('Xóa Account thành công');
@@ -192,30 +202,31 @@
         clearForm();
     }
     async function updateAccountInForm() {
-        if(!validateFormUserName()){
-            return;
-        }
-        if(!validateFormPassWord()){
-            return;
-        }
-        if(!validateFormEmail()){
-            return;
-        }
-        if(!validateFormPhone()){
-            return;
-        }
-        let accountData = {
-            userId : $("#idUserId").val(),
-            accountName: $("#InputUserName").val(),
-            password: $("#InputPassword1").val(),
-            email: $("#email").val(),
+        // if(!validateFormUserName()){
+        //     return;
+        // }
+        // if(!validateFormPassWord()){
+        //     return;
+        // }
+        // if(!validateFormEmail()){
+        //     return;
+        // }
+        // if(!validateFormPhone()){
+        //     return;
+        // }
+        let staffData = {
+            Staff_Id : $("#StaffId").val(),
+            name: $("#fullName").val(),
+            account: $("#account").val(),
+            password: '123',
             phone: $("#phone").val(),
-            role: {
-                role_id: $("#Admin").prop('checked') ? 1 : 2,
-                role_name: $("#Admin").prop('checked') ? 'Admin' : 'User'
-            }
+            email: $("#email").val(),
+            address: $("#address").val(),
+            birthday: $("#birthday").val(),
+            status: $("#status").val(),
+            isStaff:'1',
         }
-        let response = await axios.post(`/account-api/addAccount`, accountData)
+        let response = await axios.post(`staff-api/addAccount`, staffData)
         let result = response.data;
         if(result.status){
             alert('Update Account thành công');
@@ -227,35 +238,36 @@
         clearForm();
     }
     async function saveAccountInForm() {
-        if(!validateFormUserName()){
-            return;
-        }
-        if(!validateFormPassWord()){
-            return;
-        }
-        if(!validateFormEmail()){
-            return;
-        }
-        if(!validateFormPhone()){
-            return;
-        }
-        let accountData = {
-            accountName: $("#InputUserName").val(),
-            password: $("#InputPassword1").val(),
-            email: $("#email").val(),
+        // if(!validateFormUserName()){
+        //     return;
+        // }
+        // if(!validateFormPassWord()){
+        //     return;
+        // }
+        // if(!validateFormEmail()){
+        //     return;
+        // }
+        // if(!validateFormPhone()){
+        //     return;
+        // }
+        let staffData = {
+            name: $("#fullName").val(),
+            account: $("#account").val(),
+            password: '123',
             phone: $("#phone").val(),
-            role: {
-                role_id: $("#Admin").prop('checked') ? 1 : 2,
-                role_name: $("#Admin").prop('checked') ? 'Admin' : 'User'
-            }
+            email: $("#email").val(),
+            address: $("#address").val(),
+            birthday: $("#birthday").val(),
+            status: $("#status").val(),
+            isStaff:'1',
         }
-        let response = await axios.post(`/account-api/addAccount`, accountData)
+        let response = await axios.post(`/staff-api/addAccount`, staffData)
         let result = response.data;
 
          if(result.status){
-            alert('Save Account thành công');
+            alert('Save thông tin thành công');
         }else{
-            alert('Save Account thất bại');
+            alert('Save thông tin thất bại');
         }
         await loadDataAccount();
         createTableAccount(listAccount);
@@ -264,68 +276,68 @@
 
     function clearForm() {
         fillDetailForm({
-            accountName: '',
-            password: '',
-            email: '',
+            name: '',
+            account: '',
             phone: '',
-            role: {
-                role_id: 1,
-                role_name: 'Admin'
-            }
+            email: '',
+            address: '',
+            birthday: '',
+            status: 'Đang làm'
         });
     }
-
-    function fillDetailForm(accountDetail) {
-        $("#idUserId").val(accountDetail.userId);
-        $("#InputUserName").val(accountDetail.accountName);
-        // $("#InputPassword1").val(accountDetail.password);
-        $("#email").val(accountDetail.email);
-        $("#phone").val(accountDetail.phone);
-        accountDetail.role?.role_name === 'Admin'? $("#Admin").prop('checked',true) : $("#User").prop('checked',true)
+    function fillDetailForm(staffDetails) {
+        $("#StaffId").val(staffDetails.Staff_Id);
+        $("#fullName").val(staffDetails.name);
+        $("#account").val(staffDetails.account);
+        $("#phone").val(staffDetails.phone);
+        $("#email").val(staffDetails.email);
+        $("#address").val(staffDetails.address)
+        $("#birthday").val(staffDetails.birthday)
+        $("status").val(staffDetails.status)
     }
-    validateFormUserName = () =>{
-        if(!$("#InputUserName").val()){
-            $("#userNameError").text("Vui lòng nhập tài khoản!");
-            return false;
-        }else{
-            $("#userNameError").text("");
-        }
-        return true;
-    }
-    validateFormPassWord = () =>{
-        if (!$("#InputPassword1").val()){
-            $("#passWordError").text("Vui lòng nhập mật khẩu!");
-            return false;
-        }else{
-            $("#passWordError").text("");
-        }
-        return true;
-    }
-    validateFormEmail = () =>{
-        if (!$("#email").val()){
-            $("#emailError").text("Vui lòng nhập email!");
-            return false;
-        }else {
-            $("#emailError").text("");
-        }
-        let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if(!regex.test($("#email").val())){
-            $("#emailError").text("Vui lòng nhập email đúng quy tắc!");
-            return false;
-        }else {
-            $("#emailError").text("");
-        }
-        return true;
-    }
-    validateFormPhone = () =>{
-        if (!$("#phone").val()){
-            $("#phoneError").text("Vui lòng nhập số điện thoại!");
-            return false;
-        }else {
-            $("#phoneError").text("");
-        }
-        return true;
-    }
+    // validateFormUserName = () =>{
+    //     if(!$("#InputUserName").val()){
+    //         $("#userNameError").text("Vui lòng nhập tài khoản!");
+    //         return false;
+    //     }else{
+    //         $("#userNameError").text("");
+    //     }
+    //     return true;
+    // }
+    // validateFormPassWord = () =>{
+    //     if (!$("#InputPassword1").val()){
+    //         $("#passWordError").text("Vui lòng nhập mật khẩu!");
+    //         return false;
+    //     }else{
+    //         $("#passWordError").text("");
+    //     }
+    //     return true;
+    // }
+    // validateFormEmail = () =>{
+    //     if (!$("#email").val()){
+    //         $("#emailError").text("Vui lòng nhập email!");
+    //         return false;
+    //     }else {
+    //         $("#emailError").text("");
+    //     }
+    //     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    //     if(!regex.test($("#email").val())){
+    //         $("#emailError").text("Vui lòng nhập email đúng quy tắc!");
+    //         return false;
+    //     }else {
+    //         $("#emailError").text("");
+    //     }
+    //     return true;
+    // }
+    // validateFormPhone = () =>{
+    //     if (!$("#phone").val()){
+    //         $("#phoneError").text("Vui lòng nhập số điện thoại!");
+    //         return false;
+    //     }else {
+    //         $("#phoneError").text("");
+    //     }
+    //     return true;
+    // }
 
 </script>
 <script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
