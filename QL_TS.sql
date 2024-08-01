@@ -14,16 +14,17 @@ CREATE TABLE Staff
 	Email NVARCHAR(50) NOT NULL,
 	Address NVARCHAR(50) NOT NULL,
 	Birthday Date NOT NULL,
-	Status_Id INT NOT NULL, 
+	Status NVARCHAR(50) NOT NULL, 
 	is_Staff BIT NOT NULL,
-	FOREIGN KEY (Status_Id) REFERENCES Status(Status_Id)
 );
+drop table Staff
 CREATE TABLE Status
 (
 	Status_Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	Status_Name NVARCHAR(50) NOT NULL
 );
-drop table Staff
+select * from status
+drop table Status
 CREATE TABLE Sizes
 (
 	Size_Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -47,6 +48,7 @@ CREATE TABLE Product_Type (
 CREATE TABLE Products 
 (
 	Product_Id INT IDENTITY(1,1) PRIMARY KEY,
+	Images NVARCHAR(255),
 	Name_Product NVARCHAR(100) NOT NULL,
 	Price float NOT NULL,
 	Description Text NOT NULL, 
@@ -155,7 +157,7 @@ INSERT INTO Status VALUES
 (N'Đã nghỉ')
 SELECT * FROM Status
 -- Thêm dữ liệu vào bảng staff
-INSERT INTO Staff VALUES (N'Trương Tuấn Dũng','NV001','123','0394314552','tuandungtruong122@gmail.com',N'Quận Gò Vấp, TP.Hồ Chí Minh','10/08/2004','1','1')
+INSERT INTO Staff VALUES (N'Trương Tuấn Dũng','NV001','123','0394314552','tuandungtruong122@gmail.com',N'Quận Gò Vấp, TP.Hồ Chí Minh','10/08/2004',N'Đang Làm','1')
 SELECT * FROM Staff
 -- Thêm dữ liệu vào bảng Sizes
 INSERT INTO Sizes (Size_Name) VALUES ('S');

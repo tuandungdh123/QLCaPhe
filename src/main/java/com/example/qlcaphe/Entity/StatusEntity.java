@@ -10,12 +10,12 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "Status")
-public class Status {
+public class StatusEntity {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name="Status_Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Staff_Id;
+    private Integer Status_Id;
 
     @Column(name = "Status_Name")
     private String Status_Name;
