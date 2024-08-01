@@ -1,0 +1,120 @@
+.footer-wrap {
+    background-color: #333;
+    color: #000000;
+    padding: 40px 20px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/030/200/615/small_2x/cup-of-coffee-espresso-beans-web-banner-with-copy-space-generative-ai-photo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Hoặc 'contain' tùy vào kích thước bạn muốn */
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: small;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-line {
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-line i {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.footer-line.social {
+    margin-top: 10px;
+}
+
+.footer-line.social a {
+    color: #000000;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.footer-line.download-app a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-line.download-app img {
+    width: 120px;
+}
+
+.footer-2 {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-2:last-child {
+    margin-right: 0;
+}
+
+.footer-2 .footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-2 .footer-content ul li {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.footer-2 .footer-content ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.footer-bottom .left {
+    flex: 1;
+}
+
+.footer-bottom .right {
+    flex: 1;
+    text-align: right;
+}
+a{
+    text-decoration: none;
+}
+
+.footer-cover {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/030/200/615/small_2x/cup-of-coffee-espresso-beans-web-banner-with-copy-space-generative-ai-photo.jpg');
+    background-size: cover;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
