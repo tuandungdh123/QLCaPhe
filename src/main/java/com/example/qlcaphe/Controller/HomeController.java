@@ -1,6 +1,9 @@
 package com.example.qlcaphe.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -12,7 +15,10 @@ public class HomeController {
     }
 
     @GetMapping("/admin")
-    public String getAdmin(){
+    public String getAdmin(final HttpServletRequest request, Model model){
+        request.getSession().getAttribute("isStaff");
+        HttpSession session = request.getSession();
+        model.addAttribute("staff", session.getAttribute("isStaff"));
         return "Pages/Home/admin";
     }
 
@@ -32,7 +38,8 @@ public class HomeController {
     }
 
     @GetMapping("/Home")
-    public String getHome(){
+    public String getHome(final HttpServletRequest request){
+        request.getSession().setAttribute("role", "none");
         return "Pages/Home/Home_User/Home";
     }
 

@@ -4,10 +4,7 @@ import com.example.qlcaphe.Entity.CustomersEntity;
 import com.example.qlcaphe.Repository.CustomerRepository;
 import com.example.qlcaphe.Service.CustomerService;
 import com.example.qlcaphe.exception.AppException;
-import com.example.qlcaphe.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,10 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<CustomersEntity> getCustomersByTk(String username) throws AppException {
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
-        var user = customerRepository.getCustomersByTk(username).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
-        boolean authenticated = passwordEncoder.matches(user.getPassword(), user.getPassword());
-        return Optional.ofNullable(user);
+    public Optional<String> getCustomersByTkAndMk(String username, String password) throws AppException {
+        return Optional.ofNullable(username);
     }
 }
