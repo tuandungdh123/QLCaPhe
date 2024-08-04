@@ -21,11 +21,11 @@ public class StaffApi {
     public ResponseEntity<?> doGetAllAccount() {
         Map<String, Object> result = new HashMap<>();
         try {
-            result.put("status", true);
+            result.put("success", true);
             result.put("message", "Get All Account Success");
             result.put("data", staffServ.getAllStaff());
         } catch (Exception e) {
-            result.put("status", false);
+            result.put("success", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
             log.error("Fail When Call API /java05/account-api/getAllAccount ", e);
@@ -39,16 +39,16 @@ public class StaffApi {
         try {
             var data = staffServ.getAccountByTkAndMK(staff.getAccount(), staff.getPassword());
             if (!data.isEmpty()) {
-                result.put("status", true);
+                result.put("success", true);
                 result.put("message", "Login Success");
                 result.put("data", data);
 
             } else {
-                result.put("status", false);
+                result.put("success", false);
                 result.put("message", "Login Fail");
             }
         } catch (Exception e) {
-            result.put("status", false);
+            result.put("success", false);
             result.put("message", "Login Fail");
             result.put("data", null);
             log.error("Fail When Call API /accountApi/login ", e);
@@ -60,11 +60,11 @@ public class StaffApi {
     public ResponseEntity<?> doPostAddAccount(@RequestBody StaffEntity staff) {
         Map<String, Object> result = new HashMap<>();
         try {
-            result.put("status", true);
+            result.put("success", true);
             result.put("message", "Get All Account Success");
             result.put("data", staffServ.doSaveAccount(staff));
         } catch (Exception e) {
-            result.put("status", false);
+            result.put("success", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
             log.error("Fail When Call API /java05/account-api/getAllAccount ", e);
@@ -94,15 +94,15 @@ public class StaffApi {
         try {
             var data = staffServ.getAccountByTkAndMK(staff.getAccount(), staff.getPassword());
             if (!data.isEmpty()) {
-                kq.put("status", true);
+                kq.put("success", true);
                 kq.put("message", "Login Success");
                 kq.put("data", data);
             } else {
-                kq.put("status", false);
+                kq.put("success", false);
                 kq.put("message", "Login Fail");
             }
         } catch (Exception e) {
-            kq.put("status", false);
+            kq.put("success", false);
             kq.put("message", "Login Fail");
             kq.put("data", null);
             log.error("Fail When Call API /accountApi/login ", e);
@@ -114,11 +114,11 @@ public class StaffApi {
     public ResponseEntity<?> doGetStaffByStaffId(@RequestParam("Staff_id") int Staff_id) {
         Map<String, Object> result = new HashMap<>();
         try {
-            result.put("status", true);
+            result.put("success", true);
             result.put("message", "Get All Account Success");
             result.put("data", staffServ.getStaffByStaffId(Staff_id));
         } catch (Exception e) {
-            result.put("status", false);
+            result.put("success", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
         }

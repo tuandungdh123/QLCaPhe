@@ -46,7 +46,6 @@ public class HomeController {
         return "Pages/Home/Home_User/Info_Account";
     }
 
-
     @GetMapping("/TuyenDung")
     public String getTuyenDung(){
         return "Pages/Home/Home_User/TrangTuyenDung";

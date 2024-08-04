@@ -43,7 +43,7 @@ public class StaffEntity {
     private String status;
 
     @Column(name = "is_Staff")
-    private Byte isStaff;
+    private boolean isStaff;
 
 
 }
