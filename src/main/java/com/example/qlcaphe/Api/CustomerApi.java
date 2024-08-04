@@ -38,17 +38,17 @@ public class CustomerApi {
     public ResponseEntity<?> doPostLogin(@RequestBody CustomersEntity customersEntity) {
         Map<String, Object> result = new HashMap<>();
         try {
-            var data = customers.getCustomersByTk(customersEntity.getUsername());
+            var data = customers.getCustomersByTkAndMk(customersEntity.getUsername(), customersEntity.getPassword());
             if (!data.isEmpty()) {
-                result.put("status", true);
+                result.put("success", true);
                 result.put("message", "Login Success");
-                result.put("data", data.get().getUsername());
+                result.put("data", data);
             } else {
-                result.put("status", false);
+                result.put("success", false);
                 result.put("message", "Login Fail");
             }
         } catch (Exception e) {
-            result.put("status", false);
+            result.put("success", false);
             result.put("message", "Login Fail");
             result.put("data", null);
             log.error("Fail When Call API /accountApi/login ", e);
