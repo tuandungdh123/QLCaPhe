@@ -1,0 +1,385 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Payment {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Payment-Top {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.Order-confirmation {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f07400;
+    display: flex;
+    align-items: center;
+}
+
+.Order-confirmation i {
+    margin-right: 10px;
+}
+
+.payment-detail {
+    display: flex;
+}
+
+.payment-detail .col-6 {
+    flex: 1;
+    padding: 10px;
+}
+
+.Delivery-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Delivery {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tch-delivery-card {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.tch-delivery-card__image img {
+    width: 40px;
+    height: auto;
+}
+
+.tch-delivery-card__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.tch-delivery-card__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.tch-delivery-card__description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.name-input, .phone-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+}
+
+.tch-list-payment-method {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tch-payment-method-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.custom-control-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-control-label .icon img {
+    width: 24px;
+    height: auto;
+}
+
+.custom-control-label .text {
+    margin-left: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: #f07400;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #d86300;
+}
+
+/* right
+*/
+
+.tch-delivery-card {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.tch-delivery-card__image img {
+    width: 40px;
+    height: auto;
+}
+
+.tch-delivery-card__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.tch-delivery-card__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.tch-delivery-card__description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.tch-delivery-card__icon i {
+    color: #f07400;
+}
+
+/* Order Card Styles */
+.tch-order-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.tch-order-card__left {
+    display: flex;
+}
+
+.tch-order-card__icon i {
+    color: #f07400;
+    margin-right: 10px;
+}
+
+.tch-order-card__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tch-order-card__description, .tch-order-delete-item {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.tch-order-card__price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f07400;
+}
+
+.tch-order-delete-item {
+    color: red;
+    cursor: pointer;
+}
+
+/* Checkout Box Styles */
+.tch-checkout-box {
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.tch-checkout-box__title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tch-checkout-box--list-total {
+    background-color: #f8f8f8;
+}
+
+.tch-order-card__text {
+    font-size: 14px;
+    color: #666;
+}
+
+.price-discount {
+    color: green;
+    font-weight: bold;
+}
+
+.orange {
+    color: #f07400;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.f-600 {
+    font-weight: 600;
+}
+
+.btn--white {
+    background-color: #fff;
+}
+
+.btn--radius-100 {
+    border-radius: 100px;
+}
+
+.tch-checkout-box--list-submited {
+    background-color: #f07400;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.position-static {
+    position: static;
+}
+
+.btn-primary {
+    border: 2px solid #ff893f;
+    border-radius: 30px;
+    background-color: white;
+}
+.btn-primary{
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: #d86300;
+    border: 2px solid #ff893f;
+}
+
+/*rdo*/
+/* Tạo kiểu cho danh sách các phương thức thanh toán */
+/* Tạo kiểu cho danh sách các phương thức thanh toán */
+.tch-list-payment-method {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tch-payment-method-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+}
+
+/* Tạo kiểu cho các mục điều khiển tùy chỉnh */
+.custom-control.custom-radio {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Tạo kiểu cho các nút radio */
+.custom-control-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #ff7900;
+    background-color: #ff7900;
+}
+
+.custom-control-label {
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.custom-control-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #c4c4c4;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.custom-control-label::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.2s;
+}
+
+.custom-control-input:checked ~ .custom-control-label::after {
+    background-color: #ff7900;
+}
+
+/* Tạo kiểu cho biểu tượng và văn bản */
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.text {
+    vertical-align: middle;
+    font-size: 1rem;
+    color: #333;
+}
+
+.ml-3 {
+    margin-left: 1rem !important;
+}
+
+.mr-2 {
+    margin-right: 0.5rem !important;
+}

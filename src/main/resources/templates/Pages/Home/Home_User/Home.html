@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/layout-css/Home.css}">
     <link rel="stylesheet" th:href="@{/layout-css/popup.css}">
     <link rel="stylesheet" th:href="@{/layout-css/Footer.css}">
 
-    <title>Home</title>
+    <title>Trang Chủ Coffee Place</title>
 </head>
 <body>
 <style>
@@ -131,186 +133,51 @@
         <div class="icon-bottom-title"></div>
     </div>
 <!--        Sản phẩm-->
-    <div class="row new product mt-5">
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-        <div class="tags">   <div class="discount-tag">17%</div>  </div>
-        <div class="img-wrap">
-            <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-        </div>
-        <div class="product-card-content">
-            <div class="product-title"> Xanh nhài mãng cầu </div>
-            <div class="product-price">
-                <div class="product-origin-price">
-                    25,000đ</div>
-                <div class="product-sale-price">
-                    30,000đ</div>
-            </div>
-            <div class="button-type-one btn-order-product">Đặt Hàng</div>
-        </div>
-            <hr>
+    <div class="row new product mt-5" id="BodyListAllProduct">
+        <div ></div>
     </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;" >
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-        <div class="col-sm-3 product-card" product-id="350472" style="margin-left: 30px;">
-            <div class="tags">   <div class="discount-tag">17%</div>  </div>
-            <div class="img-wrap">
-                <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="">
-            </div>
-            <div class="product-card-content">
-                <div class="product-title"> Xanh nhài mãng cầu </div>
-                <div class="product-price">
-                    <div class="product-origin-price">
-                        25,000đ</div>
-                    <div class="product-sale-price">
-                        30,000đ</div>
-                </div>
-                <div class="button-type-one btn-order-product" data-bs-toggle="modal" data-bs-target="#exampleModal">Đặt Hàng</div>
-            </div>
-            <hr>
-        </div>
-    </div>
-<!--    popup-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="popup-content">
-                    <span class="close-btn" id="closeBtn">&times;</span>
-                    <div class="row">
-                        <div class="col-sm-4"> <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="Product Image" class="product-image">
-                        </div>
-                        <div class="col-sm-8"><h2 class="product-title" style="font-size: 20px">Xanh nhài mãng cầu</h2>
-                            <p class="product-price"><span class="old-price">30,000đ</span> <span class="new-price">25,000đ</span></p>
-                            <p class="product-description" style="font-size: 13px">Mãng cầu tươi dẻo dai vị chua ngọt tự nhiên, trà xanh organic thơm hương nhài kết hợp với những lát chanh vàng tạo nên tổng thể hương vị tươi mát, bổ dưỡng.</p>
-                        </div>
-                    </div>
-                    <div class="options">
-                        <label for="type">Chọn loại</label>
-                        <select id="type">
-                            <option value="lanh">Lạnh</option>
-                        </select>
+<!--&lt;!&ndash;    popup&ndash;&gt;-->
+<!--    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="popup-content">-->
+<!--                    <span class="close-btn" id="closeBtn">&times;</span>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-sm-4"> <img src="https://tocotocotea.com/wp-content/uploads/2024/06/Xanh-Nhai-Mang-Cau.png" alt="Product Image" class="product-image">-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-8"><h2 class="product-title" style="font-size: 20px">Xanh nhài mãng cầu</h2>-->
+<!--                            <p class="product-price"><span class="old-price">30,000đ</span> <span class="new-price">25,000đ</span></p>-->
+<!--                            <p class="product-description" style="font-size: 13px">Mãng cầu tươi dẻo dai vị chua ngọt tự nhiên, trà xanh organic thơm hương nhài kết hợp với những lát chanh vàng tạo nên tổng thể hương vị tươi mát, bổ dưỡng.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="options">-->
+<!--                        <label for="type">Chọn loại</label>-->
+<!--                        <select id="type">-->
+<!--                            <option value="lanh">Lạnh</option>-->
+<!--                        </select>-->
 
-                        <label for="size">Chọn size</label>
-                        <select id="size">
-                            <option value="L">Size L</option>
-                            <option value="M">Size M</option>
-                        </select>
+<!--                        <label for="size">Chọn size</label>-->
+<!--                        <select id="size">-->
+<!--                            <option value="L">Size L</option>-->
+<!--                            <option value="M">Size M</option>-->
+<!--                        </select>-->
 
-                        <label for="sugar">Chọn đường</label>
-                        <select id="sugar">
-                            <option value="100">100% đường</option>
-                            <option value="less">50% đường</option>
-                            <option value="none">Không đường</option>
-                        </select>
-                    </div>
+<!--                        <label for="sugar">Chọn đường</label>-->
+<!--                        <select id="sugar">-->
+<!--                            <option value="100">100% đường</option>-->
+<!--                            <option value="less">50% đường</option>-->
+<!--                            <option value="none">Không đường</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
 
-                    <button class="add-to-cart-btn">+ 25,000đ</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                    <button class="add-to-cart-btn">+ 25,000đ</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="button-container">
-    <div class="button-type-one btn-view-all">Xem tất cả</div>
+    <div class="button-type-one btn-view-all" onclick="window.location.href='/AllProduct'">Xem tất cả</div>
     </div>
 
     <div class="home-about-us container mt-3">
@@ -357,6 +224,8 @@
             dropdown.classList.add('hidden');
         }
     });</script>
+
+<script th:src="@{/Layout-js/All_Product.js}"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 </body>
 </html>

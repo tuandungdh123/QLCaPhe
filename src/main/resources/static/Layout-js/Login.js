@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // Get the remember-me container, checkbox, and custom checkbox from the DOM
     var rememberMeContainer = document.querySelector('.remember-me');
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var checkboxCustom = rememberMeContainer.querySelector('.checkbox-custom');
 
     // Add a click event listener to the remember-me container
-    rememberMeContainer.addEventListener('click', function(event) {
+    rememberMeContainer.addEventListener('click', function (event) {
         // If the clicked element isn't the checkbox itself, toggle the checkbox
         if (event.target !== checkbox) {
             checkbox.checked = !checkbox.checked;
@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add a change event listener to the checkbox
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function () {
         // This function will be called any time the checkbox is checked or unchecked
         // You can add any additional functionality you need here
     });
 
     // Optional: If you have a form and want to perform a custom submit action
     var form = document.querySelector('.login-form');
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         // Prevent the default form submit
         event.preventDefault();
 
