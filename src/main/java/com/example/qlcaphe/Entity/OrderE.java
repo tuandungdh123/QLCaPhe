@@ -1,23 +1,48 @@
-//package com.example.qlcaphe.Entity;
-//
-//
-//import jakarta.persistence.*;
-//import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
-//
-//@Data
-//@Getter
-//@Setter
-//@Table(name = "Orders")
-//public class OrderE {
-//
-//    @Id
-//    @Column(name = "Order_Id")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private int oderId;
-//
-//    @Column(name = "Customer_Id")
-//    private
-//
-//}
+package com.example.qlcaphe.Entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "Orders")
+public class OrderE {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Order_Id")
+    private int orderId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Customer_Id", referencedColumnName = "Customer_Id", nullable = false)
+    @JsonIgnoreProperties(value = {"orders", "hibernateLazyInitializer"})
+    private CustomersEntity customer;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Order_Date", nullable = false)
+    private Date orderDate;
+
+    @Column(name = "Total_Amount", nullable = false)
+    private double totalAmount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Order_Status_Id", referencedColumnName = "Order_Status_Id", nullable = false)
+    @JsonIgnoreProperties(value = {"orders", "hibernateLazyInitializer"})
+    private OrderStatus orderStatus;
+
+//    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JsonIgnoreProperties(value = {"order", "hibernateLazyInitializer"})
+//    private Order_Detail orderDetails;
+
+//    @OneToOne(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JsonIgnoreProperties(value = {"order", "hibernateLazyInitializer"})
+//    private ShippingInfo shippingInfo;
+}
