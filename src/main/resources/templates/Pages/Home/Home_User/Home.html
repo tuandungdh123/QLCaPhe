@@ -99,9 +99,9 @@
                     </div>
 
                     <div id="dropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                        <a th:href="@{Account}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Thông tin tài khoản</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Cài đặt</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Đăng xuất</a>
+                        <button th:href="@{Account}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Thông tin tài khoản</button>
+                        <button  class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Cài đặt</button>
+                        <button onclick="logout()"  class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Đăng xuất</button>
                     </div>
                 </div>
             </div>
@@ -224,8 +224,9 @@
             dropdown.classList.add('hidden');
         }
     });</script>
-
+<script th:src="@{/Layout-js/logout.js}"></script>
 <script th:src="@{/Layout-js/All_Product.js}"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

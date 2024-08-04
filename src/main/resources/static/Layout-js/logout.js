@@ -14,7 +14,7 @@ logout = () => {
                 timer: 1500
             }).then(() => {
                 localStorage.removeItem('account')
-                window.location.href = '/logout'
+                window.location.href = '/login'
             });
         }
     });

@@ -29,7 +29,7 @@ public class ProductE {
         private String description;
 
         @Column(name = "Product_Image")
-        private String productImage;
+        private String priductImage;
 
         @OneToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "Product_Type_Id", referencedColumnName = "Product_Type_Id")
