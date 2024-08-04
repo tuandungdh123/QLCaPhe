@@ -1,4 +1,4 @@
 package com.example.qlcaphe.Service;
 
-public interface MomoPayment {
+public interface CustomerService {
 }
