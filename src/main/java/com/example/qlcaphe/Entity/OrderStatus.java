@@ -25,7 +25,4 @@ public class OrderStatus {
     @Column(name = "Status_Name", nullable = false)
     private String statusName;
 
-//    @OneToMany(mappedBy = "orderStatus", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonIgnoreProperties(value = {"OrderStatus", "hibernateLazyInitializer"})
-//    private Set<OrderStatus> orderStatuses;
 }

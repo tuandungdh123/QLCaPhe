@@ -2,14 +2,14 @@ package com.example.qlcaphe.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Order_Details")
 public class Order_Detail {
     private static final long serialVersionUID = 1L;
@@ -22,7 +22,7 @@ public class Order_Detail {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Order_Id", referencedColumnName = "Order_Id", nullable = false)
     @JsonIgnoreProperties(value = {"Order", "hibernateLazyInitializer"})
-    private Order order;
+    private OrderE order;
 
     @Column(name = "Product_Id", nullable = false)
     private int productId;

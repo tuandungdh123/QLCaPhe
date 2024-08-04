@@ -3,7 +3,6 @@ package com.example.qlcaphe.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.mapping.Set;
 
 import java.util.Date;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "Orders")
-public class Order {
+public class OrderE {
     private static final long serialVersionUID = 1L;
 
     @Id

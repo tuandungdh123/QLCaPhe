@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.Set;
 
 @Data
 @Getter
@@ -25,7 +24,7 @@ public class ShippingInfo {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Order_Id", referencedColumnName = "Order_Id", nullable = false)
     @JsonIgnoreProperties(value = {"OrderE", "hibernateLazyInitializer"})
-    private Order orderE;
+    private OrderE orderE;
 
     @Column(name = "Recipient_Name", nullable = false)
     private String recipientName;
