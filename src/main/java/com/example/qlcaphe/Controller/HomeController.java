@@ -13,12 +13,13 @@ public class HomeController {
     public String getLogin() {
         return "Login";
     }
+    @GetMapping("/register")
+    public String getLogout() {
+        return "Register";
+    }
 
     @GetMapping("/admin")
-    public String getAdmin(final HttpServletRequest request, Model model){
-        request.getSession().getAttribute("isStaff");
-        HttpSession session = request.getSession();
-        model.addAttribute("staff", session.getAttribute("isStaff"));
+    public String getAdmin(){
         return "Pages/Home/admin";
     }
 
@@ -38,8 +39,7 @@ public class HomeController {
     }
 
     @GetMapping("/Home")
-    public String getHome(final HttpServletRequest request){
-        request.getSession().setAttribute("role", "none");
+    public String getHome(){
         return "Pages/Home/Home_User/Home";
     }
 
