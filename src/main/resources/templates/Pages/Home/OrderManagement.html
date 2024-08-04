@@ -30,7 +30,7 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Quản Lý Tour Du Lịch</a>
+                        <a class="navbar-brand" href="#">Quản Lý Đơn Hàng</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -50,68 +50,48 @@
                 <div class="row">
                         <div class="col-4 border border-2 border-black rounded-4 ">
                             <input type="file" id="imageInput">
-                            <img id="image-preview" src="/images/Banner_Milk_Tea.png" style="width: 100%; height: 300px" alt="DungDauBuoi">
-                            <div class="mb-3">
-                                <label for="TourID" class="form-label">Mã Tour</label>
-                                <input class="form-control" type="text" id="TourID" name="nameTour" disabled/>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nameTour" class="form-label">Tên Tour</label>
-                                <input type="text" class="form-control" id="nameTour">
-                            </div>
+                            <img id="image-preview" src="/images/img.png" style="width: 100%; height: 300px" alt="DungDauBuoi">
+<!--                            <div class="mb-3">-->
+<!--                                <label for="TourID" class="form-label">Mã Tour</label>-->
+<!--                                <input class="form-control" type="text" id="TourID" name="nameTour" disabled/>-->
+<!--                            </div>-->
+<!--                            <div class="mb-3">-->
+<!--                                <label for="nameTour" class="form-label">Tên Tour</label>-->
+<!--                                <input type="text" class="form-control" id="nameTour">-->
+<!--                            </div>-->
                         </div>
                         <div class="row col-8 from-info-tour" style="margin-left: 10px">
                             <div class="border border-2 border-black rounded-4">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="mb-3">
-                                            <label for="TimeTravel" class="form-label">Thời Gian</label>
+                                            <label for="TimeTravel" class="form-label">Mã Sản Phẩm</label>
                                             <input type="text" class="form-control" id="TimeTravel">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="Start" class="form-label">Ngày Khởi Hành</label>
-                                            <input type="datetime-local" class="form-control" id="Start">
+                                            <label for="Start" class="form-label">Tên Sản Phẩm</label>
+                                            <input type="text" class="form-control" id="Start">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="Transport" class="form-label">Phương Tiện</label>
+                                            <label for="Transport" class="form-label">Giá</label>
                                             <input type="text" class="form-control" id="Transport">
                                         </div>
-                                        <label class="form-label">Khu Vuc Tour</label>
+                                        <label class="form-label">Loại Sản phẩm</label>
                                         <div class="select" style="margin-bottom: 5px">
                                             <div class="top ">
                                                 <select class="form-select p-2" aria-label="Default select example" id="type_Id">
-                                                    <option value="1">Miền Bắc</option>
-                                                    <option value="2">Miền Trung</option>
-                                                    <option value="3" >Miền Nam</option>
-                                                    <option value="4">Nước Ngoài</option>
+                                                    <option value="1">Cà phê</option>
+                                                    <option value="2">Trà Sữa</option>
+                                                    <option value="3" >Nước Ép</option>
+                                                    <option value="4">Sữa Chua</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="Price" class="form-label">Giá Tour Người Lớn</label>
-                                            <input type="text" class="form-control" id="Price">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="PriceEm_Children" class="form-label">Giá Tour Trẻ Em</label>
-                                            <input type="text" class="form-control" id="PriceEm_Children">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-3">
-                                            <label for="StartPlace" class="form-label">Nơi Khởi Hành</label>
-                                            <input type="text" class="form-control" id="StartPlace">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="Slot" class="form-label">Ghế Trống</label>
-                                            <input type="number" class="form-control" id="Slot" min="0">
-                                        </div>
-                                        <div class="mb-3">
                                             <label for="Note" class="form-label">Ghi Chú</label>
                                             <textarea class="form-control" id="Note" rows="3"></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="Experience" class="form-label">Trải Nghiệm</label>
-                                            <textarea class="form-control" id="Experience" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -125,27 +105,27 @@
                     <button type="button" class="btn btn-outline-danger" id="deleteBtn" onclick="deleteTourByID()">Delete</button>
                     <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()" >Clear</button>
                 </div>
-                <div class="col-sm-6 select mt-4">
-                    <div class="top d-flex justify-content-end">
-                        <select class="form-select p-2" aria-label="Default select example" id="TypeTour" style="width: 40%; justify-content: end">
-                            <option value="" selected>Tất Cả Tour</option>
-                            <option value="1">Miền Bắc</option>
-                            <option value="2">Miền Trung</option>
-                            <option value="3" >Miền Nam</option>
-                            <option value="4">Nước Ngoài</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+<!--                <div class="col-sm-6 select mt-4">-->
+<!--                    <div class="top d-flex justify-content-end">-->
+<!--                        <select class="form-select p-2" aria-label="Default select example" id="TypeTour" style="width: 40%; justify-content: end">-->
+<!--                            <option value="" selected>Tất Cả Tour</option>-->
+<!--                            <option value="1">Miền Bắc</option>-->
+<!--                            <option value="2">Miền Trung</option>-->
+<!--                            <option value="3" >Miền Nam</option>-->
+<!--                            <option value="4">Nước Ngoài</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
-                <ul class="nav nav-pills mb-3 mt-4" style="margin-left: 10px" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Tour Còn Hoạt Động</button>
-                    </li>
-                    <li class="nav-item" role="presentation" style="margin-left: 5px">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Tour Quá Hạn</button>
-                    </li>
-                </ul>
+<!--                <ul class="nav nav-pills mb-3 mt-4" style="margin-left: 10px" id="pills-tab" role="tablist">-->
+<!--                    <li class="nav-item" role="presentation">-->
+<!--                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Tour Còn Hoạt Động</button>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item" role="presentation" style="margin-left: 5px">-->
+<!--                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Tour Quá Hạn</button>-->
+<!--                    </li>-->
+<!--                </ul>-->
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <div class="card card-body mt-4 tableQLTour">
@@ -153,15 +133,10 @@
                                 <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>TÊN TOUR</th>
-                                    <th>ẢNH TOUR</th>
-                                    <th>LOẠI TOUR</th>
-                                    <th>THỜI GIAN TOUR</th>
-                                    <th>THỜI GIAN KHỞI HÀNH</th>
-                                    <th>PHƯƠNG TIỆN</th>
-                                    <th>NƠI KHỞI HÀNH</th>
+                                    <th>TÊN SẢN PHẨM</th>
+                                    <th>ẢNH SẢN PHẨM</th>
+                                    <th>LOẠI SẢN PHẨM</th>
                                     <th>GIÁ</th>
-                                    <th>SỐ LƯỢNG CHỖ TRỐNG</th>
                                     <th>Edit</th>
                                 </tr>
                                 </thead>
@@ -177,15 +152,10 @@
                             <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>TÊN TOUR</th>
-                                <th>ẢNH TOUR</th>
-                                <th>LOẠI TOUR</th>
-                                <th>THỜI GIAN TOUR</th>
-                                <th>THỜI GIAN KHỞI HÀNH</th>
-                                <th>PHƯƠNG TIỆN</th>
-                                <th>NƠI KHỞI HÀNH</th>
+                                <th>TÊN SẢN PHẨM</th>
+                                <th>ẢNH SẢN PHẨM</th>
+                                <th>LOẠI SẢN PHẨM</th>
                                 <th>GIÁ</th>
-                                <th>SỐ LƯỢNG CHỖ TRỐNG</th>
                                 <th>Edit</th>
                             </tr>
                             </thead>
@@ -197,7 +167,7 @@
 
             </div>
         </div>
-
+        </div>
 <script th:src="@{/Layout-js/loadImage.js}"></script>
 <script th:src="@{/Layout-js/Tour.js}"></script>
 <script th:src="@{/Layout-js/LogoutAdmin.js}"></script>

@@ -20,13 +20,13 @@ function createTableProduct(addToTable) {
     addToTable.forEach(function (e, index) {
         populateProductString +=
             `<tr>` +
-            `<td>${index + 1}</td>` +
+            `<td>${index + 1}</td>`+
             `<td>${e.nameProduct}</td>` +
             `<td><img src="${e.productImage}" alt="${e.nameProduct}" style="width: 50px; height: 50px;"></td>` +
             `<td>${e.productTypeE.productTypeName}</td>` +
-            `<td>Size S: ${sizePrices['S'] ? sizePrices['S'] : 'N/A'}<br>` +
-            `Size M: ${sizePrices['M'] ? sizePrices['M'] : 'N/A'}<br>` +
-            `Size L: ${sizePrices['L'] ? sizePrices['L'] : 'N/A'}</td>` +
+            `<td>Size S: ${ e.productSizes.productTypeId = 1 / e.productSizes.price}<br>` +
+            `Size M: ${sizePrices['M'] ? sizePrices['M'] : e.productSizes.price}<br>` +
+            `Size L: ${sizePrices['L'] ? sizePrices['L'] : e.productSizes.price}</td>` +
             `<td>` +
             `<button type="button" class="btn btn-outline-success" onclick="getProductToForm(${e.productId})">Edit</button>` +
             `</td>` +
@@ -56,15 +56,17 @@ async function SaveProductInForm() {
             price: parseFloat($("#Price_SizeL").val())
         }
     ];
+
+//     update
+
+
 // Tạo đối tượng TourData
     const TourData = {
         nameProduct: nameProduct,
         productImage: productImage,
-        productTypeE: {
-            productTypeId: productTypeId
-        },
+        productTypeId: productTypeId,
         description: description,
-        productSizes: productSizes,
+        productSizes: productSizes
     };
 
     console.log(TourData);
@@ -84,7 +86,7 @@ async function SaveProductInForm() {
                 await upLoadFile();
                 await loadDataProduct();
                 createTableProduct(listAllProduct);
-                clearForm(); // Xóa form sau khi lưu thành công
+                // clearForm(); // Xóa form sau khi lưu thành công
                 Swal.fire(
                     'Lưu Thành Công!',
                     'Đã lưu tour thành công.',
@@ -120,4 +122,67 @@ async function upLoadFile() {
         .catch(function (error) {
         });
 }
+    async function UpdateProductInForm() {
+        // Lấy dữ liệu từ các trường nhập liệu
+        const productId = $("#ProductId").val();
+        const nameProduct = $("#nameTour").val();
+        const productImage = $("#imageInput").val().split('\\').pop();  // Lấy tên tệp tin từ đường dẫn
+        const productTypeId = parseInt($("#type_Id").val());
+        const description = $("#Note").val();
+        const productSizes = [
+            {
+                sizeId: 1,
+                price: parseFloat($("#Price").val())
+            },
+            {
+                sizeId: 2,
+                price: parseFloat($("#PriceEm_Children").val())
+            },
+            {
+                sizeId: 3,
+                price: parseFloat($("#Price_SizeL").val())
+            }
+        ];
+        const ProductData = {
+            productId : productId,
+            nameProduct: nameProduct,
+            productImage: productImage,
+            productTypeId: productTypeId,
+            description: description,
+            productSizes: productSizes
+        };
+        console.log(TourData);
 
+
+        Swal.fire({
+            title: 'Xác nhận chỉnh sữa?',
+            text: 'Bạn có chắn chắn Xác nhận chỉnh sữa này?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Chắc, lưu Tour này!',
+            cancelButtonText: 'Cancel'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    let response = await axios.post('/productApi/getSaveProduct', ProductData);
+                    await upLoadFile();
+                    await loadDataProduct();
+                    createTableProduct(listAllProduct);
+                    // clearForm(); // Xóa form sau khi lưu thành công
+                    Swal.fire(
+                        'Cập nhật thành công!',
+                        'Cập nhật thành công thành công.',
+                        'success'
+                    );
+                    console.log(response.data)
+                } catch (error) {
+                    console.error('Error saving product:', error.response ? error.response.data : error.message)
+                    Swal.fire(
+                        'Error!',
+                        'An error occurred while saving the Product.',
+                        'error'
+                    );
+                }
+            }
+        });
+}

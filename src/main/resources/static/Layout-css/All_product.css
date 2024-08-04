@@ -204,9 +204,12 @@ nav .flex.space-x-4 a:hover {
 }
 
 .cart-ss1-item {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
     margin-bottom: 10px;
+}
+.Cart-ss-all{
+    display: flex;
 }
 
 .cart-ss1-left {

@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +35,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductSizeRepo productSizeRepository;
     @Autowired
     private ProductTypeRepo productTypeRepo;
+    @Autowired
+    private ProductRepo productRepo;
 
     @Override
     @Transactional
@@ -71,12 +74,18 @@ public class ProductServiceImpl implements ProductService {
         return repo.findAll();
     };
 
-//
-//    @Override
-//    public ProductE saveProduct(ProductE product) {
-//        if (product.getNameProduct() == null || product.getNameProduct().isEmpty()) {
-//            throw new IllegalArgumentException("Product name cannot be null or empty");
-//        }
-//        return repo.save(product);
-//    }
+    @Override
+    public Optional<ProductE> getTourEByTourId(Integer productId) {
+        var result = productRepo.getTourEByProductId(productId);
+        return Optional.ofNullable(result);
+    }
+
+    @Override
+    public Optional<Product_SizeE> getPriceByProductIdAndSizeId(Integer productId, Integer sizeId) {
+        return productRepository.findPriceByProductIdAndSizeId(productId, sizeId);
+    }
+
+
+
+
 }

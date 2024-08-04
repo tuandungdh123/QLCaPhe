@@ -10,7 +10,7 @@ public class ProductDTO {
 
         private String nameProduct;
         private String description;
-        private String priductImage;
+        private String productImage;
         private Integer productTypeId; // ID của loại sản phẩm
         private List<ProductSizeDTO> productSizes; // Danh sách kích thước và giá
 
@@ -18,10 +18,6 @@ public class ProductDTO {
 
         public String getNameProduct() {
                 return nameProduct;
-        }
-
-        public void setNameProduct(String nameProduct) {
-                this.nameProduct = nameProduct;
         }
 
         public String getDescription() {
@@ -33,12 +29,9 @@ public class ProductDTO {
         }
 
         public String getPriductImage() {
-                return priductImage;
+                return productImage;
         }
 
-        public void setPriductImage(String priductImage) {
-                this.priductImage = priductImage;
-        }
 
         public Integer getProductTypeId() {
                 return productTypeId;

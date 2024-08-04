@@ -28,7 +28,7 @@ public class HomeController {
 
     @GetMapping("/admin/oderManagement")
     public String getOderManagement(){
-        return "Pages/Home/OrderManagement";
+        return "Pages/Home/Order";
     }
 
     @GetMapping("/Home")
@@ -51,6 +51,7 @@ public class HomeController {
     public String getTuyenDung(){
         return "Pages/Home/Home_User/TrangTuyenDung";
     }
+
     @GetMapping("/Recruitment")
     public String getRecruitment(){
         return "Pages/Home/Home_User/Recruitment";
@@ -60,6 +61,13 @@ public class HomeController {
     public String getProduct_Managerment(){
         return "Pages/Home/Home_User/Product_Managerment";
     }
+
+    @GetMapping("/Payment")
+    public String getPayment(){
+        return "Pages/Home/Home_User/Payment";
+    }
+
+
     @GetMapping("/nav")
     public String getNav(){
         return "Pages/Home/Home_User/Footer/Footer";

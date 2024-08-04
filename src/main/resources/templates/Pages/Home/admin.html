@@ -11,6 +11,24 @@
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
 
 </head>
+<style>
+    .oderManagement{
+        background: rgb(61,40,28);
+        background: linear-gradient(170deg, rgba(61,40,28,1) 4%, rgba(244,236,230,1) 87%);
+    }
+    .customers{
+        background: rgb(223,187,150);
+        background: linear-gradient(90deg, rgba(223,187,150,1) 15%, rgba(244,236,230,1) 100%);
+    }
+    .boot{
+        background: rgb(61,40,28);
+        background: linear-gradient(170deg, rgba(61,40,28,1) 11%, rgba(244,236,230,1) 68%);
+    }
+    .navBackGround{
+        background: rgb(61,40,28);
+        background: linear-gradient(141deg, rgba(61,40,28,1) 4%, rgba(244,236,230,1) 50%, rgba(223,187,150,1) 88%);
+    }
+</style>
 <body>
 <div th:fragment="sidebar" class="sidebar">
     <div class="p-3">
@@ -27,7 +45,7 @@
                 <a th:href="@{/staffManagement}" class="nav-link">Quản lý nhân viên</a>
             </li>
             <li>
-                <a th:href="@{/productManagement}" class="nav-link">Quản lý Sản phẩm</a>
+                <a th:href="@{/Product_Managerment}" class="nav-link">Quản lý Sản phẩm</a>
             </li>
             <li>
                 <a th:href="@{/admin/oderManagement}" class="nav-link">Quản lý Đặt Hàng</a>
@@ -40,9 +58,9 @@
 </div>
 <div class="content">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light  navBackGround">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Admin</a>
+                <a class="navbar-brand text-light" href="#">Admin</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -50,33 +68,33 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <span class="nav-link" id="helloAccount" href="#">Xin chào, admin!</span>
+                            <span class="nav-link text-light" id="helloAccount" href="#">Xin chào, admin!</span>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
+                            <button class="nav-link text-light" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3">
+            <div class="card text-white mb-3 oderManagement">
                 <div class="card-body">
-                    <h5 class="card-title">Quản Lý Tour</h5>
+                    <h5 class="card-title">Đơn Hàng</h5>
                     <a href="#" class="btn btn-light" onclick="serviceThongKe.getDataPolarArea()">View</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-white bg-danger mb-3">
+            <div class="card text-white mb-3 customers">
                 <div class="card-body">
-                    <h5 class="card-title">Tài Khoản</h5>
+                    <h5 class="card-title">Khách Hàng</h5>
                     <button href="#" class="btn btn-light" onclick="serviceThongKe.getDataChart()">View</button>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-white bg-success mb-3">
+            <div class="card text-white mb-3 boot">
                 <div class="card-body">
                     <h5 class="card-title">Lượng Người Truy Cập</h5>
                     <a href="#" class="btn btn-light">View </a>
