@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{/layout-css/Footer.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/Payment.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/Modal-Payment.css}">
+
+    <title>Xác Nhận Đơn Hàng</title>
+</head>
+<body>
+<div th:replace=" pages/Home/Home_User/Home :: Nav"></div>
+<div class="container">
+    <div class="Payment">
+        <div class="Payment-Top">
+            <div class="Order-confirmation">
+                <i class="fa-solid fa-file-invoice" style="color: #f07400;"></i>
+                Xác Nhận đơn hàng
+            </div>
+        </div>
+        <div class="row payment-detail">
+            <div class="col-6">
+                <div class="Delivery-top" style="display: flex">
+                    <h4 class="Delivery">Giao Hàng</h4>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Đổi phương thức
+                    </button>
+                </div>
+                <div data-v-d1bcb9c8=""
+                     class="d-flex flex-row align-items-start tch-delivery-card tch-delivery-card--border">
+                    <div data-v-d1bcb9c8="" class="tch-delivery-card__image"><img data-v-d1bcb9c8="" width="40px"
+                                                                                  src="https://minio.thecoffeehouse.com/images/tch-web-order/Delivery2.png"
+                                                                                  alt=""></div>
+                    <div data-v-d1bcb9c8="" data-toggle="modal" data-target="#abc"
+                         class="d-flex justify-content-between align-items-start tch-delivery-card__content">
+                        <div data-v-d1bcb9c8="">
+                            <h5 data-v-d1bcb9c8="" class="tch-delivery-card__title mb-0" id="display-title">223 Phạm Ngũ
+                                Lão</h5>
+                            <p data-v-d1bcb9c8="" class="tch-delivery-card__description mb-0" id="display-address">
+                                223 Phạm Ngũ Lão, Phường Phạm Ngũ Lão, Quận 1, Hồ Chí Minh, Việt Nam
+                            </p>
+                        </div>
+                        <span data-v-d1bcb9c8="" class="icon mt-2"><i data-v-d1bcb9c8="" aria-hidden="true"
+                                                                      class="fa fa-chevron-right"></i></span></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Tên người nhận" class="name-input">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="phone" placeholder="Số điện thoại người nhận" class="phone-input">
+                </div>
+                <div data-v-d1bcb9c8="" class="form-group">
+                    <input type="text" id="Description" placeholder="Ghi chú" class="phone-input">
+                </div>
+                <ul data-v-d1bcb9c8="" class="tch-list-payment-method mb-0">
+                    <li data-v-d1bcb9c8="" class="tch-payment-method-item">
+                        <div data-v-d1bcb9c8="" class="custom-control custom-radio mb-0">
+                            <input data-v-d1bcb9c8="" type="radio" name="payment-method" id="COD"
+                                   class="custom-control-input">
+                            <label data-v-d1bcb9c8="" for="COD" class="custom-control-label tch-custom-radio"
+                                   style="padding-left: 6px;"><span data-v-d1bcb9c8="" class="icon ml-3 mr-2"><img
+                                    data-v-d1bcb9c8=""
+                                    src="https://minio.thecoffeehouse.com/image/tchmobileapp/1000_photo_2021-04-06_11-17-08.jpg"
+                                    alt=""></span><span data-v-d1bcb9c8="" class="text">Tiền mặt</span> <!----></label>
+                        </div>
+                    </li>
+                    <li data-v-d1bcb9c8="" class="tch-payment-method-item">
+                        <div data-v-d1bcb9c8="" class="custom-control custom-radio mb-0"><input data-v-d1bcb9c8=""
+                                                                                                type="radio"
+                                                                                                name="payment-method"
+                                                                                                id="MoMo"
+                                                                                                class="custom-control-input">
+                            <label data-v-d1bcb9c8="" for="MoMo" class="custom-control-label tch-custom-radio"
+                                   style="padding-left: 6px;"><span data-v-d1bcb9c8="" class="icon ml-3 mr-2"><img
+                                    data-v-d1bcb9c8=""
+                                    src="https://minio.thecoffeehouse.com/image/tchmobileapp/386_ic_momo@3x.png" alt=""></span><span
+                                    data-v-d1bcb9c8="" class="text">MoMo</span></label></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <div class="Delivery-top" style="display: flex">
+                    <h4 class="Delivery">Các món đã chọn</h4>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/AllProduct'">
+                        Thêm món
+                    </button>
+                </div>
+                    <div id="selected-items-container">
+                        <!-- Nội dung của các món đã chọn sẽ được thêm vào đây bằng JavaScript -->
+                    </div>
+                <div data-v-d1bcb9c8="" class="tch-checkout-box tch-checkout-box--list-total tch-checkout-border w-100">
+                    <div data-v-d1bcb9c8="" class="mb--12"><h4 data-v-d1bcb9c8="" class="tch-checkout-box__title">Tổng cộng</h4>
+                    </div>
+                    <div data-v-d1bcb9c8="" data-toggle="modal" data-target="#delivery-time"
+                         class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
+                        <div data-v-d1bcb9c8="" class="tch-order-card__left d-flex">
+                            <p data-v-d1bcb9c8="" class="tch-order-card__text mb-0">
+                            Thành tiền
+                            </p>
+                        </div>
+                        <div data-v-d1bcb9c8="" class="tch-order-card__right">
+                            <p data-v-d1bcb9c8="" class="tch-order-card__price mb-0" id="total-price">
+                            0đ
+                            </p>
+                        </div>
+                    </div>
+                    <div data-v-d1bcb9c8="" class="tch-order-card d-flex align-items-center justify-content-between">
+                        <div data-v-d1bcb9c8="" class="tch-order-card__left d-flex"><p data-v-d1bcb9c8=""
+                                                                                       class="tch-order-card__text mb-0">
+                            Phí giao hàng</p></div>
+                        <div data-v-d1bcb9c8="" class="tch-order-card__right"><p data-v-d1bcb9c8=""
+                                                                                 class="tch-order-card__price mb-0">
+                            18.000đ</p></div>
+                    </div>
+                </div>
+                <!-- Các phần tử khác của bạn -->
+                <div data-v-d1bcb9c8=""
+                     class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
+                    <div data-v-d1bcb9c8=""><p data-v-d1bcb9c8="" class="tch-order-card__text text-white mb-0">Thành
+                        tiền</p>
+                        <p data-v-d1bcb9c8="" class="tch-order-card__text text-white f-600 mb-0" id="total-price2">0đ</p></div>
+                    <button data-v-d1bcb9c8="" type="button" class="btn btn--white text-orange btn--radius-100" id="placeOrder" onclick="placeOrder()">
+                        Đặt hàng
+                    </button>
+                </div>
+                <div data-v-d1bcb9c8="" class="tch-checkout-box tch-checkout-box--remove-card float-lg-right"><p
+                        data-v-d1bcb9c8="" class="tch-checkout-box__text text-center mb-0"><span data-v-d1bcb9c8=""
+                                                                                                 class="icon mr-2"><i
+                        data-v-d1bcb9c8="" aria-hidden="true" class="fa fa-trash"></i></span><span data-v-d1bcb9c8="">Xóa đơn hàng</span>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace=" pages/Home/Home_User/Footer/Footer :: Footer"></div>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Phương Thức Nhận Hàng</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="search-input" class="form-control" placeholder="Nhập địa chỉ...">
+                <ul id="search-results" class="list-group mt-2"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save-address">Giao địa chỉ này</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('user-menu-button').addEventListener('click', function () {
+        var dropdown = document.getElementById('dropdown');
+        if (dropdown.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
+        } else {
+            dropdown.classList.add('hidden');
+        }
+    });
+
+    // Optional: Close dropdown when clicking outside
+    window.addEventListener('click', function (event) {
+        var dropdown = document.getElementById('dropdown');
+        var button = document.getElementById('user-menu-button');
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });</script>
+<script th:src="@{/Layout-js/Payment.js}"></script>
+<script th:src="@{/Layout-js/Modal-Payment.js}"></script>
+<script th:src="@{/Layout-js/Momo.js}"></script>
+<script th:src="@{/Layout-js/Momo-Payment.js}"></script>
+<script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
+</body>
+</html>

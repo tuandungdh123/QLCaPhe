@@ -1,0 +1,67 @@
+/*.cart-ss1 {*/
+/*    display: flex;*/
+/*    flex-direction: column; !* Hiển thị các sản phẩm theo chiều dọc *!*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.cart-ss1-item {*/
+/*    display: flex;*/
+/*    justify-content: space-between; !* Căn chỉnh nội dung của từng sản phẩm *!*/
+/*    margin-bottom: 10px; !* Khoảng cách giữa các sản phẩm *!*/
+/*    padding: 10px;*/
+/*    border-bottom: 1px solid #ddd; !* Đường viền dưới mỗi sản phẩm *!*/
+/*}*/
+
+/*.cart-ss1-left, .cart-ss1-right {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.cart-ss1-left {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.cart-ss1-right {*/
+/*    text-align: right;*/
+/*}*/
+
+/*.change-quantity {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.change-quantity.decrease {*/
+/*    color: red;*/
+/*}*/
+
+/*.change-quantity.increase {*/
+/*    color: green;*/
+/*}*/
+
+/*.amount {*/
+/*    margin: 0 10px;*/
+/*}*/
+
+/*.cart-group-bottom {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.cart-ss2 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.cart-ss3 {*/
+/*    text-align: center;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.button-cart {*/
+/*    background-color: #ec0c36;*/
+/*    color: #ffffff;*/
+/*    padding: 10px;*/
+/*    border-radius: 30px;*/
+/*    cursor: pointer;*/
+/*}*/

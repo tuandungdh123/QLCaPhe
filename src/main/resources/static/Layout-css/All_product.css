@@ -14,6 +14,7 @@ nav .flex.space-x-4 a:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(94 48 2);
 }
+
 .bg-gray-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(94 48 2);
@@ -68,6 +69,7 @@ nav .flex.space-x-4 a:hover {
     text-align: center;
     font-family: Arial, sans-serif;
 }
+
 .tags {
     position: relative;
 }
@@ -148,6 +150,7 @@ nav .flex.space-x-4 a:hover {
     cursor: pointer;
     text-transform: uppercase;
 }
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -169,6 +172,7 @@ nav .flex.space-x-4 a:hover {
 .btn-view-all:hover {
     background-color: #a54301; /* Màu vàng đậm khi hover */
 }
+
 /*giỏ hàng*/
 .order-sidebar {
     border: 1px solid #ccc;
@@ -200,9 +204,12 @@ nav .flex.space-x-4 a:hover {
 }
 
 .cart-ss1-item {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
     margin-bottom: 10px;
+}
+.Cart-ss-all{
+    display: flex;
 }
 
 .cart-ss1-left {
@@ -274,13 +281,12 @@ nav .flex.space-x-4 a:hover {
     cursor: pointer;
     font-weight: bold;
 }
+
 .col-sm-3 .nav-link {
     color: black; /* Đặt màu chữ thành màu đen */
 }
+
 .col-sm-3 .nav-link:hover {
-     background-color: #ff893f; /* Màu khi hover (thay thế bằng màu bạn muốn) */
+    background-color: #ff893f; /* Màu khi hover (thay thế bằng màu bạn muốn) */
     border-radius: 10px;
- }
-
-
-/**/
+}

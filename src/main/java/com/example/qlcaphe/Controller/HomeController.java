@@ -50,10 +50,22 @@ public class HomeController {
     public String getTuyenDung(){
         return "Pages/Home/Home_User/TrangTuyenDung";
     }
+
     @GetMapping("/Recruitment")
     public String getRecruitment(){
         return "Pages/Home/Home_User/Recruitment";
     }
+
+    @GetMapping("/Product_Managerment")
+    public String getProduct_Managerment(){
+        return "Pages/Home/Home_User/Product_Managerment";
+    }
+
+    @GetMapping("/Payment")
+    public String getPayment(){
+        return "Pages/Home/Home_User/Payment";
+    }
+
 
     @GetMapping("/nav")
     public String getNav(){
