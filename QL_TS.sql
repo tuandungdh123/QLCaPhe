@@ -75,7 +75,7 @@ CREATE TABLE Product_Toppings (
 );
 
 CREATE TABLE Customers (
-    Customer_Id INT PRIMARY KEY IDENTITY(1,1),Phone NVARCHAR(20),
+    Customer_Id INT PRIMARY KEY IDENTITY(1,1),
     Username NVARCHAR(50) NOT NULL UNIQUE,
     Password NVARCHAR(255) NOT NULL,
     Phone_Number NVARCHAR(100) NOT NULL UNIQUE,
