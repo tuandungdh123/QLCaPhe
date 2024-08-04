@@ -15,21 +15,4 @@ public class PaymentRequest {
 
     @JsonProperty("orderInfo")
     private String orderInfo;
-//
-//    // Getter và Setter
-//    public String getAmount() {
-//        return amount;
-//    }
-//
-//    public void setAmount(String amount) {
-//        this.amount = amount;
-//    }
-//
-//    public String getOrderInfo() {
-//        return orderInfo;
-//    }
-//
-//    public void setOrderInfo(String orderInfo) {
-//        this.orderInfo = orderInfo;
-//    }
 }
