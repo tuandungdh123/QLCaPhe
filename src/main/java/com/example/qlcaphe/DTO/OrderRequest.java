@@ -13,8 +13,9 @@ import java.util.List;
 @Setter
 @Getter
 public class OrderRequest {
-    private CustomersEntity customer;
+    private int customerId;
     private List<Order_Detail> orderDetails;
     private ShippingInfo shippingInfo;
-
+    private Integer orderStatusId; // có thể là Integer để chấp nhận null\
+    private Integer paymentMethodId;
 }

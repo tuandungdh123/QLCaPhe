@@ -37,12 +37,4 @@ public class OrderE {
     @JoinColumn(name = "Order_Status_Id", referencedColumnName = "Order_Status_Id", nullable = false)
     @JsonIgnoreProperties(value = {"orders", "hibernateLazyInitializer"})
     private OrderStatus orderStatus;
-
-//    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonIgnoreProperties(value = {"order", "hibernateLazyInitializer"})
-//    private Order_Detail orderDetails;
-
-//    @OneToOne(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonIgnoreProperties(value = {"order", "hibernateLazyInitializer"})
-//    private ShippingInfo shippingInfo;
 }
