@@ -193,6 +193,25 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('user-menu-button').addEventListener('click', function() {
+        var dropdown = document.getElementById('dropdown');
+        if (dropdown.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
+        } else {
+            dropdown.classList.add('hidden');
+        }
+    });
+
+    // Optional: Close dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('dropdown');
+        var button = document.getElementById('user-menu-button');
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });</script>
 <div th:replace=" pages/Home/Home_User/Footer/Footer :: Footer"></div>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 </body>

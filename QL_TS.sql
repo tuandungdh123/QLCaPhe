@@ -44,7 +44,7 @@ CREATE TABLE Product_Type (
     Product_Type_Id INT IDENTITY(1,1) PRIMARY KEY,
     Product_Type_Name NVARCHAR(100) NOT NULL
 );
-
+drop table Product_Sizes
 CREATE TABLE Products 
 (
 	Product_Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -52,7 +52,7 @@ CREATE TABLE Products
 	Name_Product NVARCHAR(100) NOT NULL,
 	Price float NOT NULL,
 	Description Text NOT NULL, 
-	Priduct_Image NVARCHAR(255) NOT NULL,
+	Product_Image NVARCHAR(255) NOT NULL,
 	Product_Type_Id INT NOT NULL, 
 	FOREIGN KEY (Product_Type_Id) REFERENCES Product_Type(Product_Type_Id)
 )
@@ -82,7 +82,8 @@ CREATE TABLE Customers (
 	UNIQUE (Username),
     UNIQUE (Phone_Number)
 );
-
+alter table Customers 
+DROP COLUMN Phone
 CREATE TABLE Customer_Details (
     Detail_Id INT IDENTITY(1,1) PRIMARY KEY,
     Customer_Id INT NOT NULL,
@@ -94,7 +95,7 @@ CREATE TABLE Customer_Details (
     Profile_Image NVARCHAR(255) NULL,
     FOREIGN KEY (Customer_Id) REFERENCES Customers(Customer_Id)
 );
-
+drop table Customers_Details
 CREATE TABLE Orders (
     Order_Id INT IDENTITY(1,1) PRIMARY KEY,
     Customer_Id INT NOT NULL,
@@ -103,7 +104,7 @@ CREATE TABLE Orders (
     Status NVARCHAR(50) NOT NULL,
     FOREIGN KEY (Customer_Id) REFERENCES Customers(Customer_Id)
 );
-
+drop table Orders
 -- Bảng lưu chi tiết đơn hàng
 CREATE TABLE Order_Details (
     Order_Detail_Id INT IDENTITY(1,1) PRIMARY KEY,
