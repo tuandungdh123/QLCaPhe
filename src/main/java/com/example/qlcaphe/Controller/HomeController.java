@@ -73,6 +73,11 @@ public class HomeController {
         return "Pages/Home/Home_User/Payment";
     }
 
+    @GetMapping("/MyOrder")
+    public String getMyOrder(){
+        return "Pages/Home/Home_User/MyOrder";
+    }
+
 
     @GetMapping("/nav")
     public String getNav(){
