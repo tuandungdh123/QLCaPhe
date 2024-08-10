@@ -74,7 +74,7 @@ validateFormPassWord = () =>{
     if(!regex.test($("#password").val())){
         Swal.fire({
             icon: "error",
-            title: "Hãy nhập mật khẩu gồm in hoa, in thường và số",
+            title: "Hãy nhập mật khẩu gồm in hoa, in thường và số, tối thiểu là 8 chữ số",
             showConfirmButton: false,
             timer: 2000
         });

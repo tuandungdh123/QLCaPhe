@@ -37,7 +37,7 @@ function createTableProduct(addToTable) {
             <img src="/images/ImagesProduct/${e.productImage}" alt="ĐungauBui">
         </div>
         <div class="product-card-content">
-            <div class="product-title" style="height: 72px"> ${e.nameProduct} </div>
+            <div class="product-title"> ${e.nameProduct} </div>
             <div class="product-price">
                 <div class="product-origin-price">
                     ${price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>
