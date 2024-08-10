@@ -15,8 +15,8 @@ public class registerServiceImpl implements registerService {
 //    final mailService mailService;
     @Override
     public CustomersEntity doSaveCustomer(CustomersEntity customersEntity) throws Exception {
-//        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
-//        customersEntity.setPassword(passwordEncoder.encode(customersEntity.getPassword()));
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        customersEntity.setPassword(passwordEncoder.encode(customersEntity.getPassword()));
 
 //        mailE mail = new mailE();
 //        mail.setTo(accountEntity.getEmail());

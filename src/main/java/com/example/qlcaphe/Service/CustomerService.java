@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface CustomerService {
     List<CustomersEntity> getAllCustomers() throws AppException;
     Optional<String> getCustomersByTkAndMk(String username, String password) throws SQLException, AppException;
+    Optional<String> findCustomersByUsername(String username) throws AppException;
 }

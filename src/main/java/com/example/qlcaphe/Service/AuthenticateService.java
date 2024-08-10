@@ -4,5 +4,5 @@ import java.sql.SQLException;
 
 public interface AuthenticateService {
     Boolean isAdminTableContainsIsStaff() throws SQLException;
-    Object authenticateUser(String username, String password) throws SQLException;
+    Object authenticateUser(String username) throws SQLException;
 }
