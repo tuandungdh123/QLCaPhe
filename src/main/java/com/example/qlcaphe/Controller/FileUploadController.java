@@ -39,8 +39,32 @@ public class FileUploadController {
         }
     }
 
+    @PostMapping("/uploadFileUser")
+    public ResponseEntity<String> uploadFileUser(@RequestParam("file") MultipartFile file) {
+        try {
+            // Đường dẫn tới thư mục images trong src/main/resources
+            String uploadDir = "src/main/resources/static/images/ImagesUser/";
+
+            // Tạo đường dẫn đầy đủ tới file
+            Path upload = Paths.get(uploadDir);
+            //nếu có thư mục rồi thì thêm vào___chưa thì tạo thư mục mới
+            if (!Files.exists(upload)) {
+                Files.createDirectories(upload);
+            }
+            // Lưu file vào vị trí được chỉ định
+            Path filPath = upload.resolve(file.getOriginalFilename());
+            Files.copy(file.getInputStream(), filPath, StandardCopyOption.REPLACE_EXISTING);
+
+            return ResponseEntity.ok().body("File uploaded successfully!");
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while uploading the file: " + e.getMessage());
+        }
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request: " + e.getMessage());
     }
+
+
 }
