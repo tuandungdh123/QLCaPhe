@@ -17,4 +17,6 @@ public interface ProductRepo extends JpaRepository<ProductE, Integer> {
     @Query("SELECT ps, p.nameProduct FROM Product_SizeE ps JOIN ps.productE p WHERE ps.productE.productId = :productId AND ps.sizeE.sizeId = :sizeId")
     Optional<Product_SizeE> findPriceByProductIdAndSizeId(@Param("productId") Integer productId, @Param("sizeId") Integer sizeId);
 
+
+//    Optional<ProductE> findById(Integer productId);
 }

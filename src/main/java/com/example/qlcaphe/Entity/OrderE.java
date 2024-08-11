@@ -12,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "Orders")
 public class OrderE {
     private static final long serialVersionUID = 1L;
@@ -37,4 +38,5 @@ public class OrderE {
     @JoinColumn(name = "Order_Status_Id", referencedColumnName = "Order_Status_Id", nullable = false)
     @JsonIgnoreProperties(value = {"orders", "hibernateLazyInitializer"})
     private OrderStatus orderStatus;
+
 }

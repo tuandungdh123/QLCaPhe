@@ -13,6 +13,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/layout-css/Infor_Account.css}">
     <title>Thông tin tài khoản</title>
 </head>
@@ -22,7 +24,7 @@
     <div class="row mt-3">
         <div class="col-sm-3">
             <div class="menu">
-                <div class="menu-item">
+                <div class="menu-item" onclick="window.location.href='Account'">
                     <i class="fa-solid fa-user"></i>
                     Thông tin tài khoản
                 </div>
@@ -47,14 +49,115 @@
                 <span class="text-title"><i class="fa-solid fa-clock-rotate-left" style="color: #ffae00;"></i> Tra cứu đơn hàng</span>
             </h1>
             <div class="input-group mb-3 mt-5 w-50">
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Tra cứu đơn hàng theo số điện thoại">
-                <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" id="searchPhone" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Tra cứu đơn hàng theo số điện thoại">
+                <span class="input-group-text" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+            <ul class="nav nav-tabs w-75">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" id="tab1">Đang chờ xác nhận</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="tab2">Đang giao hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="tab3">Đã giao</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="tab4">Đã hủy</a>
+                </li>
+            </ul>
+            <div id="tabContent1" class="tab-content w-75">
+                <table id="resultsTableTab1" class="table table-striped mt-4">
+                    <thead>
+                    <tr>
+                        <th>Mã Đơn Hàng</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Tổng Giá</th>
+                        <th>Trạng Thái Đơn Hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Dữ liệu sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tabContent2" class="tab-content w-75" style="display:none;">
+                <table id="resultsTableTab2" class="table table-striped mt-4">
+                    <thead>
+                    <tr>
+                        <th>Mã Đơn Hàng</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Tổng Giá</th>
+                        <th>Trạng Thái Đơn Hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Dữ liệu sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="tabContent3" class="tab-content w-75" style="display:none;">
+                <table id="resultsTableTab3" class="table table-striped mt-4">
+                    <thead>
+                    <tr>
+                        <th>Mã Đơn Hàng</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Tổng Giá</th>
+                        <th>Trạng Thái Đơn Hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Dữ liệu sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="tabContent4" class="tab-content w-75" style="display:none;">
+                <table id="resultsTableTab4" class="table table-striped mt-4">
+                    <thead>
+                    <tr>
+                        <th>Mã Đơn Hàng</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Tổng Giá</th>
+                        <th>Trạng Thái Đơn Hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Dữ liệu sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
-<script th:src="@{/Layout-js/InfoAccountUser.js}"></script>
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Mã Đơn Hàng:</strong> <span id="modalOrderId"></span></p>
+                <p><strong>Tên Sản Phẩm:</strong> <span id="modalProductName"></span></p>
+                <p><strong>Tổng Giá:</strong> <span id="modalTotalAmount"></span></p>
+                <p><strong>Trạng Thái Đơn Hàng:</strong> <span id="modalOrderStatus"></span></p>
+            </div>
+            <div class="modal-footer">
+                <div class="mb-3">
+                    <label for="cancelReason" class="form-label">Lý Do Hủy:</label>
+                    <textarea class="form-control" id="cancelReason" rows="3" required></textarea>
+                </div>
+                <button type="button" class="btn btn-danger" id="cancelOrderBtn">Hủy Đơn Hàng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/Layout-js/SerchBill.js}"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
