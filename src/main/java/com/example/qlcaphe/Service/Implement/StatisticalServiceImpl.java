@@ -27,13 +27,18 @@ public class StatisticalServiceImpl implements StatisticalService {
    }
 
     @Override
-    public Float findByMonth(int month, int year) {
-        float statisticalMonth = 0;
-        List<OrderE> listOrder = statisticalRepository.findByMonth(month, year);
-        for(OrderE orderE : listOrder){
-            statisticalMonth += orderE.getTotalAmount();
-        }
-        return statisticalMonth;
+    public Map<Integer, Integer> findByMonth(int month) {
+       Map<Integer, Integer> map = new HashMap<>();
+       List<OrderE> orderEList = statisticalRepository.findByMonth(month);
+       for(OrderE orderE : orderEList){
+           int day = Integer.parseInt(orderE.getOrderDate().toString().split(" ")[0].split("-")[2]);
+           if(map.containsKey(day)){
+               map.replace(day, (int) (map.get(day) + orderE.getTotalAmount()));
+           }else{
+               map.put(day, (int) (orderE.getTotalAmount()));
+           }
+       }
+       return map;
     }
 
     @Override

@@ -50,10 +50,9 @@ public class StatisticalApi {
         return ResponseEntity.ok(result);
     }
     @GetMapping("/findByMonth")
-    public ResponseEntity<Map<String, Object>> findByMonth(@RequestParam int month,
-                                                           @RequestParam int year) {
+    public ResponseEntity<Map<String, Object>> findByMonth(@RequestParam int month) {
         Map<String, Object> result = new HashMap<>();
-        Float data = statisticalService.findByMonth(month,year);
+        Map<Integer, Integer> data = statisticalService.findByMonth(month);
         try {
             if (data != null) {
                 result.put("success", true);
