@@ -1,5 +1,6 @@
 package com.example.qlcaphe.Api;
 
+import com.example.qlcaphe.Entity.CustomersEntity;
 import com.example.qlcaphe.Entity.StaffEntity;
 import com.example.qlcaphe.Service.AuthenticateService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,11 +33,18 @@ public class AuthenApi {
         if (user != null) {
             response.put("success", true);
             if (user instanceof StaffEntity) {
+
+                StaffEntity staff = (StaffEntity) user;
                 response.put("userType", "admin");
                 response.put("user", user);
+                response.put("userId", staff.getStaff_Id()); // Assuming getStaffId() is available
+                response.put("phone", staff.getPhone());
             } else {
+                CustomersEntity customer = (CustomersEntity) user;
                 response.put("userType", "customer");
                 response.put("user", user);
+                response.put("userId", customer.getCustomerId()); // Assuming getCustomerId() is available
+                response.put("phone", customer.getPhone());
             }
         } else {
             response.put("success", false);

@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
         ProductE product = new ProductE();
         product.setNameProduct(productDTO.getNameProduct());
         product.setDescription(productDTO.getDescription());
-        product.setPriductImage(productDTO.getPriductImage());
+        product.setProductImage(productDTO.getPriductImage());
 
         // Kiểm tra xem loại sản phẩm có tồn tại không
         ProductTypeE productType = productTypeRepo.findById(productDTO.getProductTypeId())

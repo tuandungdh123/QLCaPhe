@@ -1,0 +1,18 @@
+.swal2
+.swal2-popup {
+    font-size: 1rem;
+    color: #8a6d3b;
+    background-color: rgba(210, 105, 30, 0.8); /* Màu nâu cam mờ với độ mờ 90% */
+    max-width: 200px; /* Kích thước nhỏ hơn */
+    padding: 20px;
+}
+.swal2-icon.swal2-warning {
+    border-color: rgba(210, 105, 30, 0.9);
+    color: #8a6d3b;
+}
+.swal2-title {
+    font-size: 1.2rem;
+}
+.swal2-close {
+    color: #8a6d3b;
+}

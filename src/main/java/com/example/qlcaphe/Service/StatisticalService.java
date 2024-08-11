@@ -1,11 +1,11 @@
 package com.example.qlcaphe.Service;
 
-import com.example.qlcaphe.DTO.StatisticalDTO;
-
-import java.util.List;
+import java.util.Map;
 
 public interface StatisticalService {
-    List<StatisticalDTO.DailyRevenue> getDailyRevenue();
-    List<StatisticalDTO.MonthlyRevenue> getMonthlyRevenue();
-    List<StatisticalDTO.YearlyRevenue> getYearlyRevenue();
+    Float findByDay(int day, int month, int year);
+
+    Float findByMonth(int month, int year);
+
+    Map<Integer, Integer> findByYear(int year);
 }

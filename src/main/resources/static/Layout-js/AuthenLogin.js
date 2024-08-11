@@ -5,6 +5,9 @@ btnLogin = async () => {
     }
     try {
         let response = await axios.post('/authen-api/login', userLogin);
+        let userId = response.data.userId; // Đọc đúng trường userId từ phản hồi
+        let userPhone = response.data.phone; // Đọc số điện thoại từ phản hồi
+        console.log(userPhone)
         if (response.data.success) {
             if (response.data.userType === 'admin') {
                 Swal.fire({
@@ -15,6 +18,7 @@ btnLogin = async () => {
                     timer: 1500
                 }).then(() => {
                     localStorage.setItem('account', userLogin.username)
+                    localStorage.setItem('userId', userId);
                     window.location.href='/admin'
                 });
             } else {
@@ -26,6 +30,9 @@ btnLogin = async () => {
                     timer: 1500
                 }).then(() => {
                     localStorage.setItem('account', userLogin.username)
+                    localStorage.setItem('userId', userId); // Lưu userId vào localStorage
+                    localStorage.setItem('phone', userPhone); // Lưu số điện thoại vào localStorage
+                    localStorage.setItem('userId', userId); // Lưu userId vào localStorage
                     window.location.href='/Home'
                 });
             }

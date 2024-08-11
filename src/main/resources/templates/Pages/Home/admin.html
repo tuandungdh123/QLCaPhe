@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <style>
@@ -77,55 +78,28 @@
                 </div>
             </div>
         </nav>
-        <div class="col-md-4">
-            <div class="card text-white mb-3 oderManagement">
-                <div class="card-body">
-                    <h5 class="card-title">Đơn Hàng</h5>
-                    <a href="#" class="btn btn-light" onclick="serviceThongKe.getDataPolarArea()">View</a>
-                </div>
+            <div class="row">
+            <div class="col-md-3  mt-3">
+            <label for="statisticalDay" class="form-label">Ngày</label>
+            <input type="number" class="form-control" name="statisticalDay" id="statisticalDay">
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-white mb-3 customers">
-                <div class="card-body">
-                    <h5 class="card-title">Khách Hàng</h5>
-                    <button href="#" class="btn btn-light" onclick="serviceThongKe.getDataChart()">View</button>
-                </div>
+            <div class="col-md-3  mt-3">
+                <label for="statisticalMonth" class="form-label">Tháng</label>
+                <input type="number" class="form-control" name="statisticalMonth" id="statisticalMonth">
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-white mb-3 boot">
-                <div class="card-body">
-                    <h5 class="card-title">Lượng Người Truy Cập</h5>
-                    <a href="#" class="btn btn-light">View </a>
-                </div>
+            <div class="col-md-3  mt-3">
+                <label for="statisticalYear" class="form-label">Năm</label>
+                <input type="number" class="form-control" name="statisticalYear" value="2024" id="statisticalYear">
             </div>
-        </div>
+            <button type="button" onclick="btnYear_Click()" class="col-md-3 mt-5 btn btn-outline-info h-50">Thống kê</button>
+            </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <canvas id="polarAreaChart"></canvas>
-        </div>
-        <div class="col-md-8">
-            <canvas id="barChart"></canvas>
-        </div>
+    <div class="w-75 bg-white p-4 m-4">
+        <canvas  id="myChart"></canvas>
     </div>
 </div>
 <script th:src="@{/Layout-js/admin.js}"></script>
-<script>
-    const serviceThongKe = new ThongKe()
-    $(document).ready(() => {
-        serviceThongKe.loadInit()
-        $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
-    })
-    window.addEventListener('pageshow', function (event) {
-        if (event.persisted) {
-            if (!localStorage.getItem('account')) {
-                window.location.href = '/login'
-            }
-        }
-    });
-</script>
+<script th:src="@{/Layout-js/Statistical.js}"></script>
 <script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>

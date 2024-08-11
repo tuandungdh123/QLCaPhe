@@ -9,6 +9,9 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/layout-css/Infor_Account.css}">
     <title>Thông tin tài khoản</title>
@@ -53,21 +56,21 @@
                         </div>
                         <div class="item-profile">
                             <div class="profile-lable">Họ và tên*</div>
-                            <input class="profile-input" name="fullname" type="text" placeholder="Nhập họ tên..." readonly>
+                            <input class="profile-input" name="fullname" id="FullName" type="text" placeholder="Nhập họ tên...">
                         </div>
                         <div class="item-profile">
                             <div class="profile-lable">Sinh nhật*</div>
-                            <input readonly="" class="profile-input" name="date_of_birth" type="text" id="date-group1-2" placeholder="YYYY-MM-DD">
+                            <input class="profile-input" name="date_of_birth" type="text" id="date-group1-2" placeholder="YYYY-MM-DD">
                         </div>
                     </div>
                     <div  class="col-sm-6" style="margin-top: 90px">
                         <div class="item-profile">
                         <div class="profile-lable">Số điện thoại</div>
-                        <input class="profile-input" disabled="" name="phone" type="text" placeholder="Số điện thoại..." readonly>
+                        <input class="profile-input" disabled="" name="phone" type="text" placeholder="Số điện thoại..." readonly id="phoneInput">
                     </div>
                         <div class="item-profile">
                             <div class="profile-lable">Email*</div>
-                            <input class="profile-input" name="email" type="text" placeholder="Email..."readonly>
+                            <input class="profile-input" name="email" type="text" placeholder="Email..." id="EmailUser">
                         </div>
                         <div class="item-profile">
                             <div class="profile-lable">Giới tính*</div>
@@ -118,8 +121,6 @@
         document.getElementById('fileInput').click();
     });
 </script>
-<script th:src="@{/Layout-js/popup.js}"></script>
-<script th:src="@{/Layout-js/logout.js}"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -13,14 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "OrderStatus")
+@Table(name = "Order_Status")
 public class OrderStatus {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Order_Status_Id")
-    private int orderStatusId;
+    private Integer orderStatusId;
 
     @Column(name = "Status_Name", nullable = false)
     private String statusName;

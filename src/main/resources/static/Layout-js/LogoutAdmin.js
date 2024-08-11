@@ -16,7 +16,7 @@ Logout = () => {
                 timer: 1500
             }).then(() => {
                 localStorage.removeItem('account')
-                window.location.href = '/logout'
+                window.location.href = '/login'
             });
         } else if (result.isDenied) {
             Swal.fire({
@@ -26,7 +26,7 @@ Logout = () => {
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                window.location.href='/home'
+                window.location.href='/Home'
             });
         }
     });
