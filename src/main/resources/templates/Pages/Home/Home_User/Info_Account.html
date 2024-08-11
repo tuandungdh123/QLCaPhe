@@ -76,21 +76,22 @@
                             <div class="profile-lable">Giới tính*</div>
                             <select class="form-control profile-input" name="gender" id="exampleFormControlSelect1">
                                 <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
-                                <option value="3">Khác</option>
+                                <option value="0">Nữ</option>
+                                <option value="-1">Khác</option>
                             </select>
                         </div>
                         <div class="item-profile">
                             <div class="profile-lable">Địa chỉ mặc định</div>
                             <div class="address_wrap">
-                                <input class="profile-input" name="address_text" type="text" placeholder="Địa chỉ nhận hàng..." autocomplete="off" id="address">
+                                <input class="profile-input" name="address_text" type="text" placeholder="Địa chỉ nhận hàng..." autocomplete="off">
                                 <i class="fas fa-angle-right" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="btn-save-change mt-3" id="btnSave">Lưu Thay Đổi</button>
+
+            <div class="btn-save-change mt-3">Lưu thay đổi</div>
 
             <style>
                 .btn-save-change{
@@ -120,9 +121,6 @@
         document.getElementById('fileInput').click();
     });
 </script>
-
-<script th:src="@{/Layout-js/InfoAccountUser.js}"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
 </html>

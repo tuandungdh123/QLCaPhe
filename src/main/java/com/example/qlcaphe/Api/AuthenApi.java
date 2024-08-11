@@ -27,9 +27,7 @@ public class AuthenApi {
         String username = loginData.get("username");
         String password = loginData.get("password");
 
-
-
-        Object user = authService.authenticateUser(username, password);
+        Object user = authService.authenticateUser(username);
 
         Map<String, Object> response = new HashMap<>();
         if (user != null) {

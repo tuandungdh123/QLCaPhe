@@ -3,6 +3,7 @@ package com.example.qlcaphe.Service.Implement;
 import com.example.qlcaphe.Entity.StaffEntity;
 import com.example.qlcaphe.Repository.StaffRepository;
 import com.example.qlcaphe.Service.StaffService;
+import com.example.qlcaphe.exception.AppException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,10 @@ public class StaffServiceImpl implements StaffService {
     public Optional<Optional<StaffEntity>> getStaffByStaffId(int Staff_id){
         var result = repo.findById(Staff_id);
         return Optional.ofNullable(result);
+    }
+
+    @Override
+    public Optional<String> findStaffByAccount(String username) throws AppException {
+        return Optional.ofNullable(username);
     }
 }

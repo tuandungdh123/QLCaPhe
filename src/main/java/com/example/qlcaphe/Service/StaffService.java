@@ -13,4 +13,5 @@ public interface StaffService {
     StaffEntity doSaveAccount(StaffEntity accountEntity);
     void  doDeleteById(int Staff_id);
     Optional<Optional<StaffEntity>> getStaffByStaffId(int Staff_id);
+    Optional<String> findStaffByAccount(String username) throws AppException;
 }

@@ -24,4 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
     public Optional<String> getCustomersByTkAndMk(String username, String password) throws AppException {
         return Optional.ofNullable(username);
     }
+    @Override
+    public Optional<String> findCustomersByUsername(String username) throws AppException {
+        return Optional.ofNullable(username);
+    }
 }
